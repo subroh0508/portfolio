@@ -1,4 +1,4 @@
-import { instantiate } from './portfolio.uninstantiated.mjs';
+import { instantiate } from './portfolio-web-wasm.uninstantiated.mjs';
 
 await wasmSetup;
 
@@ -9,8 +9,10 @@ try {
   te = e;
 }
 
+/*
 if (te == null) {
   document.getElementById("warning").style.display="none";
 } else {
   throw te;
 }
+*/
