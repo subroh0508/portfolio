@@ -12,6 +12,7 @@ allprojects {
     configurations.all {
         val conf = this
         conf.resolutionStrategy.eachDependency {
+            /*
             val isWasm = conf.name.contains("wasm", true)
             val isJs = conf.name.contains("js", true)
             val isComposeGroup = requested.module.group.startsWith("org.jetbrains.compose")
@@ -19,6 +20,7 @@ allprojects {
             if (isComposeGroup && !isComposeCompiler && !isWasm && !isJs) {
                 useVersion(libs.versions.compose.mpp.get())
             }
+            */
             if (requested.module.name.startsWith("kotlin-stdlib")) {
                 useVersion(libs.versions.kotlin.get())
             }
