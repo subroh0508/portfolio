@@ -7,7 +7,7 @@ group = "net.subroh0508"
 version = "1.0-SNAPSHOT"
 
 kotlin {
-    js(IR) {
+    wasm {
         binaries.executable()
         browser {
 
@@ -17,10 +17,10 @@ kotlin {
     sourceSets {
         named("commonMain") {
             dependencies {
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.material3)
-                implementation(compose.materialIconsExtended)
+                api(compose.runtime)
+                api(compose.foundation)
+                api(compose.material3)
+                api(compose.materialIconsExtended)
             }
         }
 
@@ -30,11 +30,16 @@ kotlin {
             }
         }
 
-        named("jsMain") {}
-        named("jsTest") {}
+        named("wasmMain") {}
+        named("wasmTest") {}
     }
 }
 
 compose.experimental {
     web.application {}
+}
+
+compose {
+    kotlinCompilerPlugin.set(libs.versions.compose.wasm.get())
+    kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=${libs.versions.kotlin.get()}")
 }
