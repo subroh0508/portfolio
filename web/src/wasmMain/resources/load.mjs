@@ -1,4 +1,4 @@
-import { instantiate } from './portfolio-web-wasm.uninstantiated.mjs';
+import { instantiate } from './portfoliowebapp.uninstantiated.mjs';
 
 await wasmSetup;
 

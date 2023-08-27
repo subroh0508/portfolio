@@ -5,10 +5,9 @@ plugins {
 
 kotlin {
     wasm {
+        moduleName = "portfoliowebapp"
         binaries.executable()
-        browser {
-
-        }
+        browser {}
     }
 
     sourceSets {
