@@ -1,29 +1,40 @@
 plugins {
     alias(libs.plugins.kotlin.mpp)
+    alias(libs.plugins.compose)
 }
 
 group = "net.subroh0508"
 version = "1.0-SNAPSHOT"
 
-repositories {
-    mavenCentral()
-}
-
 kotlin {
-    wasm {
+    js(IR) {
         binaries.executable()
         browser {
 
         }
     }
+
     sourceSets {
-        val commonMain by getting
-        val commonTest by getting {
+        named("commonMain") {
+            dependencies {
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material3)
+                implementation(compose.materialIconsExtended)
+            }
+        }
+
+        named("commonTest") {
             dependencies {
                 implementation(kotlin("test"))
             }
         }
-        val wasmMain by getting
-        val wasmTest by getting
+
+        named("jsMain") {}
+        named("jsTest") {}
     }
+}
+
+compose.experimental {
+    web.application {}
 }
