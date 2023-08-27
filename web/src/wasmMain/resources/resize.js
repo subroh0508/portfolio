@@ -1,5 +1,5 @@
 function resizeCanvas(_event) {
-  const canvas = document.getElementById('ComposeTarget');
+  const canvas = document.getElementById('PortfolioCanvas');
 
   canvas.style.width = window.innerWidth + 'px';
   canvas.style.height = window.innerHeight + 'px';
