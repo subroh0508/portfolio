@@ -1,5 +1,5 @@
 plugins {
-    kotlin("multiplatform") version "1.8.20"
+    alias(libs.plugins.kotlin.mpp)
 }
 
 group = "net.subroh0508"
