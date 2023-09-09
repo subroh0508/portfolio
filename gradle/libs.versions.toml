@@ -1,5 +1,5 @@
 [versions]
-kotlin = "1.9.0"
+kotlin = "1.9.10"
 compose-mpp = "1.4.0"
 compose-wasm = "1.4.0-dev-wasm09"
 detekt = "1.23.1"
