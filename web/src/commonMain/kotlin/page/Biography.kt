@@ -30,7 +30,7 @@ fun Biography() {
             Spacer(Modifier.size(16.dp))
 
             Text(
-                "Subroh Nishikori",
+                "にしこりさぶろ〜",
                 style = MaterialTheme.typography.headlineMedium,
             )
         }
