@@ -7,6 +7,6 @@ fun main() {
         "Portfolio",
         canvasElementId = "PortfolioCanvas",
     ) {
-        MainView()
+        PortfolioApp()
     }
 }
