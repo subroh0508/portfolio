@@ -1,4 +1,4 @@
-package components
+package component
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DarkMode

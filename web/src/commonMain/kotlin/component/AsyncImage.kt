@@ -1,4 +1,4 @@
-package components
+package component
 
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.*

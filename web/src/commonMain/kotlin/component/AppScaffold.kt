@@ -1,4 +1,4 @@
-package components
+package component
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Scaffold

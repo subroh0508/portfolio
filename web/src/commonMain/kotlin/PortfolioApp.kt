@@ -2,10 +2,11 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import components.AppScaffold
+import component.AppScaffold
 import config.*
 import page.Biography
-import theme.rememberFontFamily
+import section.BiographySection
+import section.DescriptionSection
 import theme.rememberTypography
 
 @Composable
@@ -23,7 +24,8 @@ fun PortfolioApp(
             typography = typography,
         ) {
             AppScaffold {
-                Biography()
+                DescriptionSection()
+                BiographySection()
             }
         }
     }
