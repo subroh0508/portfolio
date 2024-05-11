@@ -1,37 +1,41 @@
 package components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
-@OptIn(ExperimentalMaterial3Api::class)
+private val MinWidth = 320.dp
+private val MaxWidth = 900.dp
+
 @Composable
 fun AppScaffold(
     content: @Composable () -> Unit,
-) = Scaffold(
-    topBar = { TopAppBar() },
-) { paddingValues ->
+) = Surface(Modifier.fillMaxSize()) {
     BoxWithConstraints {
         val width = when {
-            maxWidth < 640.dp -> maxWidth
-            else -> 640.dp
+            MinWidth <= maxWidth && maxWidth < MaxWidth -> maxWidth
+            maxWidth < MinWidth -> MinWidth
+            else -> MaxWidth
         }
 
-        Box(
-            modifier = Modifier.fillMaxSize()
-                .padding(paddingValues),
-        ) {
-            Column(
-                modifier = Modifier.width(width)
-                    .fillMaxHeight()
-                    .align(Alignment.Center),
-            ) { content() }
+        Scaffold(
+            topBar = { TopAppBar() },
+            modifier = Modifier.width(width)
+                .align(Alignment.Center),
+        ) { paddingValues ->
+            Box(
+                modifier = Modifier.fillMaxSize()
+                    .padding(paddingValues),
+            ) {
+                Column(
+                    modifier = Modifier.fillMaxSize()
+                        .align(Alignment.Center),
+                ) { content() }
+            }
         }
     }
 }
