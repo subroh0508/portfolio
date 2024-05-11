@@ -10,15 +10,19 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import config.ColorTheme
 import config.LocalAppConfigState
+import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.stringResource
+import portfolio.web.generated.resources.Res
+import portfolio.web.generated.resources.title
 import androidx.compose.material3.TopAppBar as M3TopAppBar
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalResourceApi::class)
 @Composable
 fun TopAppBar() {
     val config = LocalAppConfigState.current
 
     M3TopAppBar(
-        title = { Text("Subroh Nisikori's Portfolio") },
+        title = { Text(stringResource(Res.string.title)) },
         actions = {
             IconButton(
                 onClick = {

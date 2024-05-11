@@ -1,5 +1,6 @@
 package page
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Card
@@ -9,8 +10,14 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import components.AsyncImage
+import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.imageResource
+import org.jetbrains.compose.resources.stringResource
+import portfolio.web.generated.resources.Res
+import portfolio.web.generated.resources.icon
+import portfolio.web.generated.resources.name
 
+@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun Biography() {
     Card(
@@ -20,9 +27,9 @@ fun Biography() {
         Row(
             modifier = Modifier.padding(16.dp),
         ) {
-            AsyncImage(
-                "icon.webp",
-                "Subroh Nishikori's Icon",
+            Image(
+                imageResource(Res.drawable.icon),
+                "Icon",
                 modifier = Modifier.size(96.dp)
                     .clip(CircleShape),
             )
@@ -30,7 +37,7 @@ fun Biography() {
             Spacer(Modifier.size(16.dp))
 
             Text(
-                "にしこりさぶろ〜",
+                stringResource(Res.string.name),
                 style = MaterialTheme.typography.headlineMedium,
             )
         }
