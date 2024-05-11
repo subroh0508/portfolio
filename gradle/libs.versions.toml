@@ -1,12 +1,11 @@
 [versions]
-kotlin = "1.9.10"
-compose-mpp = "1.4.0"
-compose-wasm = "1.4.0-dev-wasm09"
+kotlin = "1.9.23"
+compose = "1.6.2"
 detekt = "1.23.1"
 
 [plugins]
 kotlin-mpp = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-compose = { id = "org.jetbrains.compose", version.ref = "compose-wasm" }
+compose = { id = "org.jetbrains.compose", version.ref = "compose" }
 
 [libraries]
 detekt-plugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }

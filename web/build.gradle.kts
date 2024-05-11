@@ -1,17 +1,29 @@
+import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
+import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
+
 plugins {
     alias(libs.plugins.kotlin.mpp)
     alias(libs.plugins.compose)
 }
 
 kotlin {
-    wasm {
-        moduleName = "portfoliowebapp"
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
         binaries.executable()
-        browser {}
+        browser {
+            commonWebpackConfig {
+                outputFileName = "portfoliowebapp.js"
+                devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
+                    static = (static ?: mutableListOf()).apply {
+                        add(project.projectDir.path)
+                    }
+                }
+            }
+        }
     }
 
     sourceSets {
-        named("commonMain") {
+        commonMain {
             dependencies {
                 implementation(compose.runtime)
                 implementation(compose.foundation)
@@ -22,22 +34,14 @@ kotlin {
             }
         }
 
-        named("commonTest") {
+        commonTest {
             dependencies {
                 implementation(kotlin("test"))
             }
         }
-
-        named("wasmMain") {}
-        named("wasmTest") {}
     }
 }
 
 compose.experimental {
     web.application {}
-}
-
-compose {
-    kotlinCompilerPlugin.set(libs.versions.compose.wasm.get())
-    kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=${libs.versions.kotlin.get()}")
 }
