@@ -3,6 +3,13 @@
     <string name="name">Subroh Nishikori</string>
     <string name="id">@subroh_0508</string>
 
+    <string name="movie">Movie</string>
+    <string name="slide">Slide</string>
+
+    <string name="conference">Conference</string>
+    <string name="study_meeting">Study Meeting</string>
+    <string name="personal_project">Personal Project</string>
+
     <string name="x">X.com</string>
     <string name="href_x">https://x.com/subroh_0508</string>
 
@@ -32,4 +39,13 @@
 
     <string name="label_my_dearest">My Dearest</string>
     <string name="label_love">Love</string>
+
+    <string name="work_droidkaigi_2019_headline">DroidKaigi 2019</string>
+    <string name="work_droidkaigi_2019_description">I talked "Get a Cool Unit Test Environment with Spek2+MockK+JaCoCo!" at DroidKaigi 2019.</string>
+
+    <string name="work_kotlinfest_2019_headline">Kotlin Fest 2019</string>
+    <string name="work_kotlinfest_2019_description">I talked "I want to develop the frontend of a web application by Kotlin! -The trail of web pages made with Kotlin/JS-" at Kotlin Fest 2019.</string>
+
+    <string name="work_kotlinfest_2022_headline">Kotlin Fest 2022</string>
+    <string name="work_kotlinfest_2022_description">I talked "I want to develop the frontend of a web application by Jetpack Compose! -Does Compose for Web dream of modern web applications?-" at Kotlin Fest 2022.</string>
 </resources>

@@ -1,6 +1,4 @@
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Tab
@@ -12,10 +10,11 @@ import component.ContentTab
 import component.TabLayout
 import config.*
 import org.jetbrains.compose.resources.stringResource
-import section.BiographySection
 import section.AccountsSection
+import section.BiographySection
 import section.HandleNameSection
 import section.MyFavoritesSection
+import section.WorksSection
 import theme.rememberTypography
 
 @Composable
@@ -57,6 +56,6 @@ private fun PortfolioContent() = TabLayout(
     content = { tab ->
         BiographySection(tab == ContentTab.Biography)
         MyFavoritesSection(tab == ContentTab.MyFavorites)
-        AnimatedVisibility(tab == ContentTab.Works) { Box {} }
+        WorksSection(tab == ContentTab.Works)
     },
 )
