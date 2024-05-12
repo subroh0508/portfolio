@@ -9,6 +9,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import component.AnimatedSection
 import component.IconGrid
 import component.icon.*
 import component.icon.MyFavourite
@@ -16,7 +17,10 @@ import org.jetbrains.compose.resources.stringResource
 import portfolio.web.generated.resources.*
 
 @Composable
-internal fun MyFavoritesSection() = Column(
+internal fun MyFavoritesSection(
+    visible: Boolean,
+) = AnimatedSection(
+    visible,
     modifier = Modifier.padding(32.dp),
 ) {
     Text(

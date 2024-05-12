@@ -1,3 +1,4 @@
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.Icon
@@ -54,10 +55,8 @@ private fun PortfolioContent() = TabLayout(
         }
     },
     content = { tab ->
-        when (tab) {
-            ContentTab.Biography -> BiographySection()
-            ContentTab.MyFavorites -> MyFavoritesSection()
-            ContentTab.Works -> Box {}
-        }
+        BiographySection(tab == ContentTab.Biography)
+        MyFavoritesSection(tab == ContentTab.MyFavorites)
+        AnimatedVisibility(tab == ContentTab.Works) { Box {} }
     },
 )

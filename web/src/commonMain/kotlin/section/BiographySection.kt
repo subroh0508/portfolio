@@ -8,12 +8,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import component.AnimatedSection
 import org.jetbrains.compose.resources.stringResource
 import portfolio.web.generated.resources.Res
 import portfolio.web.generated.resources.biography
 
 @Composable
-internal fun BiographySection() = Column(
+internal fun BiographySection(
+    visible: Boolean,
+) = AnimatedSection(
+    visible,
     modifier = Modifier.padding(32.dp),
     horizontalAlignment = Alignment.CenterHorizontally,
 ) {
