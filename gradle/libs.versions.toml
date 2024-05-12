@@ -1,6 +1,6 @@
 [versions]
 kotlin = "1.9.23"
-compose = "1.6.2"
+compose = "1.6.10-rc01"
 detekt = "1.23.1"
 
 [plugins]
