@@ -10,11 +10,6 @@ kotlin {
         browser {
             commonWebpackConfig {
                 outputFileName = "portfoliowebapp.js"
-                devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
-                    static = (static ?: mutableListOf()).apply {
-                        add(project.projectDir.path)
-                    }
-                }
             }
         }
         binaries.executable()
