@@ -5,6 +5,8 @@
 
     <string name="movie">Movie</string>
     <string name="slide">Slide</string>
+    <string name="try_it_now">Try it now</string>
+    <string name="repository">Repository</string>
 
     <string name="conference">Conference</string>
     <string name="study_meeting">Study Meeting</string>
@@ -40,6 +42,9 @@
     <string name="label_my_dearest">My Dearest</string>
     <string name="label_love">Love</string>
 
+    <string name="work_kotlin_material_ui_headline">Kotlin Material-UI</string>
+    <string name="work_kotlin_material_ui_description">※UNMAINTAINED\n\nThis is a wrapper framework for Kotlin/JS for Material-UI, a UI framework for React. \n\nMore than 100 types of UI components and functions for theme customization provided by Material-UI could be used instantly on Kotlin/JS.</string>
+
     <string name="work_droidkaigi_2019_headline">DroidKaigi 2019</string>
     <string name="work_droidkaigi_2019_description">I talked "Get a Cool Unit Test Environment with Spek2+MockK+JaCoCo!" at DroidKaigi 2019.</string>
 
@@ -48,4 +53,10 @@
 
     <string name="work_kotlinfest_2022_headline">Kotlin Fest 2022</string>
     <string name="work_kotlinfest_2022_description">I talked "I want to develop the frontend of a web application by Jetpack Compose! -Does Compose for Web dream of modern web applications?-" at Kotlin Fest 2022.</string>
+
+    <string name="work_colormaster_headline">COLOR M@STER</string>
+    <string name="work_colormaster_description">This application provides various functions for the image colors of characters in THE iDOLM@STER. Currently, two functions, "Search" and "Penlight", are implemented. \n\nThis Application is developed by Kotlin Multiplatform.</string>
+
+    <string name="work_noctiluca_headline">Noctiluca</string>
+    <string name="work_noctiluca_description">※Under Development\n\nThis application is a multi-platform client of Mastodon.</string>
 </resources>

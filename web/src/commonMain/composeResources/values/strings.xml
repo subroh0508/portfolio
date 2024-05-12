@@ -5,6 +5,8 @@
 
     <string name="movie">動画</string>
     <string name="slide">資料</string>
+    <string name="try_it_now">使ってみる</string>
+    <string name="repository">レポジトリ</string>
 
     <string name="conference">カンファレンス</string>
     <string name="study_meeting">勉強会</string>
@@ -40,6 +42,9 @@
     <string name="label_my_dearest">担当アイドル</string>
     <string name="label_love">推し</string>
 
+    <string name="work_kotlin_material_ui_headline">Kotlin Material-UI</string>
+    <string name="work_kotlin_material_ui_description">※公開終了\n\nReact向けUIフレームワーク「Material-UI」のKotlin/JS用ラッパーフレームワークです。\n\nMaterial-UIが提供する100種類以上のUIコンポーネント、およびテーマカスタマイズ用関数をKotlin/JS上で即座に利用することができました。</string>
+
     <string name="work_droidkaigi_2019_headline">DroidKaigi 2019</string>
     <string name="work_droidkaigi_2019_description">「Spek2+MockK+JaCoCoでイケてる Unit Test環境を手に入れろ！」というタイトルで、DroidKaigi 2019に登壇しました。</string>
 
@@ -48,4 +53,10 @@
 
     <string name="work_kotlinfest_2022_headline">Kotlin Fest 2022</string>
     <string name="work_kotlinfest_2022_description">「フロントエンドもJetpack Composeで書きたい！ -Compose for WebはモダンWebアプリケーションの夢を見るか？-」というタイトルで、Kotlin Fest 2022に登壇しました。</string>
+
+    <string name="work_colormaster_headline">COLOR M@STER</string>
+    <string name="work_colormaster_description">アイドルマスターに登場するキャラクターのイメージカラーに対する、様々な機能を提供するアプリケーションです。現在、「検索」「ペンライト」の2つの機能が実装されています。\n\n実装にはKotlin Multiplatformを利用しています。</string>
+
+    <string name="work_noctiluca_headline">Noctiluca</string>
+    <string name="work_noctiluca_description">※開発中\n\nマルチプラットフォーム対応のMastodonクライアントアプリです。</string>
 </resources>
