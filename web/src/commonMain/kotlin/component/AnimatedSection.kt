@@ -1,9 +1,5 @@
 package component
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.AnimatedVisibilityScope
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.runtime.Composable
@@ -16,10 +12,8 @@ internal fun AnimatedSection(
     modifier: Modifier = Modifier,
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
     content: @Composable ColumnScope.() -> Unit,
-) = AnimatedVisibility(
+) = FadeAnimatedVisibility(
     visible,
-    enter = fadeIn(),
-    exit = fadeOut(),
 ) {
     Column(
         modifier = modifier,

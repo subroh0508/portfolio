@@ -19,7 +19,7 @@ internal fun Footer(
     modifier: Modifier = Modifier,
 ) = Column(
     horizontalAlignment = Alignment.CenterHorizontally,
-    modifier = modifier.padding(16.dp),
+    modifier = modifier.padding(top = 48.dp, bottom = 16.dp),
 ) {
     Text(
         stringResource(Res.string.last_modified, "2024-05-13T04:04:00+0900"),

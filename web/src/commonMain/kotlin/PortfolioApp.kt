@@ -7,7 +7,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
-import component.*
 import component.AppScaffold
 import component.ContentTab
 import component.Footer
@@ -42,11 +41,6 @@ fun PortfolioApp(
                         modifier = Modifier.width(width),
                     )
                 },
-                footer = { width ->
-                    Footer(
-                        modifier = Modifier.width(width),
-                    )
-                },
             ) {
                 item { HandleNameSection() }
                 item { AccountsSection() }
@@ -70,8 +64,8 @@ private fun PortfolioContent() = TabLayout(
         }
     },
     content = { tab ->
-        BiographySection(tab == ContentTab.Biography)
-        MyFavoritesSection(tab == ContentTab.MyFavorites)
-        WorksSection(tab == ContentTab.Works)
+        BiographySection(tab == ContentTab.Biography) { Footer() }
+        MyFavoritesSection(tab == ContentTab.MyFavorites) { Footer() }
+        WorksSection(tab == ContentTab.Works) { Footer() }
     },
 )
