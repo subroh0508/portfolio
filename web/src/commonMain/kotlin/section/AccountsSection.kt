@@ -5,16 +5,54 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import component.chip.DeveloperAccounts
-import component.chip.RecruitingAccounts
-import component.chip.SnsAccounts
+import component.chip.*
+import component.chip.Bluesky
+import component.chip.Facebook
+import component.chip.GitHub
+import component.chip.Lapras
+import component.chip.X
+import config.MediumWidth
+import config.MinWidth
+import config.SmallWidth
 
 @Composable
 internal fun AccountsSection() {
-    ChipRow { SnsAccounts() }
-    ChipRow {
-        DeveloperAccounts()
-        RecruitingAccounts()
+    ResponsiveRow(
+        { X() },
+        { Bluesky() },
+        { Facebook() },
+    )
+    ResponsiveRow(
+        { GitHub() },
+        { Lapras() },
+        { Wantedly() },
+        { Youtrust() },
+    )
+}
+
+@Composable
+private fun ResponsiveRow(
+    vararg chip: @Composable RowScope.() -> Unit,
+) = ResponsiveRow(chip.toList())
+
+@Composable
+private fun ResponsiveRow(
+    chip: List<@Composable RowScope.() -> Unit>,
+) = BoxWithConstraints {
+    val chunkedSize = when {
+        maxWidth < MinWidth -> 1
+        maxWidth in MinWidth..<SmallWidth -> 2
+        (maxWidth in SmallWidth..<MediumWidth) && chip.size == 4 -> 2
+        maxWidth in SmallWidth..<MediumWidth -> 3
+        else -> chip.size
+    }
+
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        chip.chunked(chunkedSize).forEach { row ->
+            ChipRow { row.forEach { it() } }
+        }
     }
 }
 

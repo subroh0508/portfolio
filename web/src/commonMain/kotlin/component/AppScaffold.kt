@@ -7,9 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-
-private val MinWidth = 320.dp
-private val MaxWidth = 900.dp
+import config.MaxWidth
+import config.MinWidth
 
 @Composable
 fun AppScaffold(

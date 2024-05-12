@@ -12,20 +12,18 @@ import portfolio.web.generated.resources.github
 import portfolio.web.generated.resources.href_github
 import portfolio.web.generated.resources.lapras
 
-@OptIn(ExperimentalResourceApi::class)
 @Composable
-internal fun DeveloperAccounts() {
-    AccountLink(
-        painterResource(Res.drawable.github),
-        Res.string.github,
-        Res.string.href_github,
-        lightColor = Color(0xFF24292F),
-        darkColor = Color.White,
-    )
+internal fun GitHub() = AccountLink(
+    painterResource(Res.drawable.github),
+    Res.string.github,
+    Res.string.href_github,
+    lightColor = Color(0xFF24292F),
+    darkColor = Color.White,
+)
 
-    AccountLink(
-        imageResource(Res.drawable.lapras),
-        Res.string.lapras,
-        Res.string.href_lapras,
-    )
-}
+@Composable
+internal fun Lapras() = AccountLink(
+    imageResource(Res.drawable.lapras),
+    Res.string.lapras,
+    Res.string.href_lapras,
+)

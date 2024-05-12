@@ -11,22 +11,20 @@ import portfolio.web.generated.resources.*
 import portfolio.web.generated.resources.Res
 import portfolio.web.generated.resources.wantedly_dark
 
-@OptIn(ExperimentalResourceApi::class)
 @Composable
-internal fun RecruitingAccounts() {
-    AccountLink(
-        if (MaterialTheme.colorScheme.isLight()) {
-            painterResource(Res.drawable.wantedly_light)
-        } else {
-            painterResource(Res.drawable.wantedly_dark)
-        },
-        Res.string.wantedly,
-        Res.string.href_wantedly,
-    )
+internal fun Wantedly() = AccountLink(
+    if (MaterialTheme.colorScheme.isLight()) {
+        painterResource(Res.drawable.wantedly_light)
+    } else {
+        painterResource(Res.drawable.wantedly_dark)
+    },
+    Res.string.wantedly,
+    Res.string.href_wantedly,
+)
 
-    AccountLink(
-        imageResource(Res.drawable.youtrust),
-        Res.string.youtrust,
-        Res.string.href_youtrust,
-    )
-}
+@Composable
+internal fun Youtrust() = AccountLink(
+    imageResource(Res.drawable.youtrust),
+    Res.string.youtrust,
+    Res.string.href_youtrust,
+)
