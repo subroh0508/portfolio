@@ -1,4 +1,3 @@
-import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
@@ -7,9 +6,7 @@ plugins {
 }
 
 kotlin {
-    @OptIn(ExperimentalWasmDsl::class)
-    wasmJs {
-        binaries.executable()
+    js(IR) {
         browser {
             commonWebpackConfig {
                 outputFileName = "portfoliowebapp.js"
@@ -20,6 +17,7 @@ kotlin {
                 }
             }
         }
+        binaries.executable()
     }
 
     sourceSets {
