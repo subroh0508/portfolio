@@ -18,7 +18,6 @@ import org.jetbrains.compose.resources.*
 
 private val IconSize = 18.dp
 
-@OptIn(ExperimentalResourceApi::class)
 @Composable
 internal fun AccountLink(
     bitmap: ImageBitmap,
@@ -48,7 +47,6 @@ internal fun AccountLink(
     )
 }
 
-@OptIn(ExperimentalResourceApi::class)
 @Composable
 internal fun AccountLink(
     painter: Painter,

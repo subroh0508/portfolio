@@ -24,5 +24,9 @@
     <string name="youtrust">YOUTRUST</string>
     <string name="href_youtrust">https://youtrust.jp/users/subroh_0508</string>
 
+    <string name="tab_biography">経歴</string>
+    <string name="tab_my_favourites">推し</string>
+    <string name="tab_works">実績</string>
+
     <string name="biography">1995年生まれ。東京の離島・伊豆大島出身。メインの技術スタックはKotlin・Android・Rails・React。\n\n東京高専情報工学科を卒業後、2016年4月に株式会社TOKIUMに新卒入社。6年半に渡りAndroid・Webの領域でプレイングマネージャーとして経験を積み、2023年1月からはDevHRとしてエンジニア採用・組織づくりの業務にフルコミットで携わる。\n\nKotlinとアイドルマスターをこよなく愛する。アイマスPとしての時間を積み重ねていたら、現実の仕事もプロデューサー業っぽくなってきた。2023年末の異次元フェスで脳が破壊され、最近はラブライブ！にも手を伸ばしつつある。</string>
 </resources>

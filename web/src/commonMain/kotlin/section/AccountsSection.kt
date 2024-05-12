@@ -22,12 +22,15 @@ internal fun AccountsSection() {
         { Bluesky() },
         { Facebook() },
     )
+
     ResponsiveRow(
         { GitHub() },
         { Lapras() },
         { Wantedly() },
         { Youtrust() },
     )
+
+    Spacer(Modifier.size(24.dp))
 }
 
 @Composable

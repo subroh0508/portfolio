@@ -11,7 +11,7 @@ import config.MaxWidth
 import config.MinWidth
 
 @Composable
-fun AppScaffold(
+internal fun AppScaffold(
     content: @Composable ColumnScope.() -> Unit,
 ) = Surface(Modifier.fillMaxSize()) {
     BoxWithConstraints {
