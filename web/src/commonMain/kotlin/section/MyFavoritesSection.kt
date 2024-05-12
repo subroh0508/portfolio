@@ -16,7 +16,7 @@ import org.jetbrains.compose.resources.stringResource
 import portfolio.web.generated.resources.*
 
 @Composable
-internal fun MyFavoritesSection()  = Column(
+internal fun MyFavoritesSection() = Column(
     modifier = Modifier.padding(32.dp),
 ) {
     Text(

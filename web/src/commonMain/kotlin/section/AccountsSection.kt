@@ -16,7 +16,10 @@ import config.MinWidth
 import config.SmallWidth
 
 @Composable
-internal fun AccountsSection() {
+internal fun AccountsSection() = Column(
+    modifier = Modifier.fillMaxWidth(),
+    horizontalAlignment = Alignment.CenterHorizontally,
+) {
     ResponsiveRow(
         { X() },
         { Bluesky() },

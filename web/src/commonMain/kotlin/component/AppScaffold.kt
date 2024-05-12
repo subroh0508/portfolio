@@ -1,6 +1,8 @@
 package component
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -12,7 +14,7 @@ import config.MinWidth
 
 @Composable
 internal fun AppScaffold(
-    content: @Composable ColumnScope.() -> Unit,
+    content: LazyListScope.() -> Unit,
 ) = Surface(Modifier.fillMaxSize()) {
     BoxWithConstraints {
         val width = when {
@@ -26,16 +28,11 @@ internal fun AppScaffold(
             modifier = Modifier.width(width)
                 .align(Alignment.Center),
         ) { paddingValues ->
-            Box(
+            LazyColumn(
                 modifier = Modifier.fillMaxSize()
                     .padding(paddingValues),
-            ) {
-                Column(
-                    modifier = Modifier.fillMaxSize()
-                        .align(Alignment.Center),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) { content() }
-            }
+                content = content,
+            )
         }
     }
 }

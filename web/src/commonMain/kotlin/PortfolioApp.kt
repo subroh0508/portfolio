@@ -32,9 +32,9 @@ fun PortfolioApp(
             typography = typography,
         ) {
             AppScaffold {
-                HandleNameSection()
-                AccountsSection()
-                PortfolioContent()
+                item { HandleNameSection() }
+                item { AccountsSection() }
+                item { PortfolioContent() }
             }
         }
     }
