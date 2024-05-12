@@ -12,6 +12,9 @@
     <string name="study_meeting">Study Meeting</string>
     <string name="personal_project">Personal Project</string>
 
+    <string name="last_modified">Last Modified: %1$s</string>
+    <string name="sourcecode">Source Code</string>
+
     <string name="x">X.com</string>
     <string name="href_x">https://x.com/subroh_0508</string>
 

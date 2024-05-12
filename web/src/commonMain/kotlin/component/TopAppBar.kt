@@ -8,6 +8,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import config.ColorTheme
 import config.LocalAppConfigState
 import org.jetbrains.compose.resources.stringResource
@@ -17,7 +18,9 @@ import androidx.compose.material3.TopAppBar as M3TopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun TopAppBar() {
+internal fun TopAppBar(
+    modifier: Modifier = Modifier,
+) {
     val config = LocalAppConfigState.current
 
     M3TopAppBar(
@@ -39,6 +42,7 @@ internal fun TopAppBar() {
                     contentDescription = "Change Theme",
                 )
             }
-        }
+        },
+        modifier = modifier,
     )
 }
