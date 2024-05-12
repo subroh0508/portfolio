@@ -14,6 +14,7 @@ import org.jetbrains.compose.resources.stringResource
 import section.BiographySection
 import section.AccountsSection
 import section.HandleNameSection
+import section.MyFavoritesSection
 import theme.rememberTypography
 
 @Composable
@@ -55,7 +56,7 @@ private fun PortfolioContent() = TabLayout(
     content = { tab ->
         when (tab) {
             ContentTab.Biography -> BiographySection()
-            ContentTab.MyFavorites -> Box {}
+            ContentTab.MyFavorites -> MyFavoritesSection()
             ContentTab.Works -> Box {}
         }
     },

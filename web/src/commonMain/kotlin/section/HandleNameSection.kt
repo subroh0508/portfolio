@@ -10,7 +10,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.imageResource
 import org.jetbrains.compose.resources.stringResource
 import portfolio.web.generated.resources.Res
@@ -18,7 +17,6 @@ import portfolio.web.generated.resources.icon
 import portfolio.web.generated.resources.id
 import portfolio.web.generated.resources.name
 
-@OptIn(ExperimentalResourceApi::class)
 @Composable
 internal fun HandleNameSection() {
     Image(
