@@ -12,5 +12,17 @@
     <string name="facebook">Facebook</string>
     <string name="href_facebook">https://www.facebook.com/harunobu.sakaue</string>
 
+    <string name="github">GitHub</string>
+    <string name="href_github">https://github.com/subroh0508</string>
+
+    <string name="lapras">LAPRAS</string>
+    <string name="href_lapras">https://lapras.com/public/subroh_0508</string>
+
+    <string name="wantedly">Wantedly</string>
+    <string name="href_wantedly">https://www.wantedly.com/id/hsakaue</string>
+
+    <string name="youtrust">YOUTRUST</string>
+    <string name="href_youtrust">https://youtrust.jp/users/subroh_0508</string>
+
     <string name="biography">1995年生まれ。東京の離島・伊豆大島出身。メインの技術スタックはKotlin・Android・Rails・React。\n\n東京高専情報工学科を卒業後、2016年4月に株式会社TOKIUMに新卒入社。6年半に渡りAndroid・Webの領域でプレイングマネージャーとして経験を積み、2023年1月からはDevHRとしてエンジニア採用・組織づくりの業務にフルコミットで携わる。\n\nKotlinとアイドルマスターをこよなく愛する。アイマスPとしての時間を積み重ねていたら、現実の仕事もプロデューサー業っぽくなってきた。2023年末の異次元フェスで脳が破壊され、最近はラブライブ！にも手を伸ばしつつある。</string>
 </resources>

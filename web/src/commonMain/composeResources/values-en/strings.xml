@@ -12,5 +12,17 @@
     <string name="facebook">Facebook</string>
     <string name="href_facebook">https://www.facebook.com/harunobu.sakaue</string>
 
+    <string name="github">GitHub</string>
+    <string name="href_github">https://github.com/subroh0508</string>
+
+    <string name="lapras">LAPRAS</string>
+    <string name="href_lapras">https://lapras.com/public/subroh_0508</string>
+
+    <string name="wantedly">Wantedly</string>
+    <string name="href_wantedly">https://www.wantedly.com/id/hsakaue</string>
+
+    <string name="youtrust">YOUTRUST</string>
+    <string name="href_youtrust">https://youtrust.jp/users/subroh_0508</string>
+
     <string name="biography">Born in 1995. Born in Izu Oshima, a remote island in Tokyo. My technology stack is Kotlin, Android, Rails, and React.\n\nAfter graduating from Tokyo National College of Technology with a degree in Information Engineering, he joined TOKIUM Inc. in April 2016 as a new graduate, gaining 6.5 years of experience as a playing manager in the Android and web fields, and from January 2023, I will be fully committed to hiring engineers and building organizations as a DevHR.\n\nI love Kotlin and Idolmaster. As I spent more and more time as an iM@S Producer, my real job started to resemble a producer's job.My brain was destroyed by the "Ijigen Fes" at the end of 2023, and I have recently started working on Love Live! and is now branching out into Love Live!</string>
 </resources>

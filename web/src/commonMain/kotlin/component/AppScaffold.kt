@@ -13,7 +13,7 @@ private val MaxWidth = 900.dp
 
 @Composable
 fun AppScaffold(
-    content: @Composable () -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
 ) = Surface(Modifier.fillMaxSize()) {
     BoxWithConstraints {
         val width = when {
@@ -34,6 +34,7 @@ fun AppScaffold(
                 Column(
                     modifier = Modifier.fillMaxSize()
                         .align(Alignment.Center),
+                    horizontalAlignment = Alignment.CenterHorizontally,
                 ) { content() }
             }
         }

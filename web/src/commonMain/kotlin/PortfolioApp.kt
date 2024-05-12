@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import component.AppScaffold
 import config.*
-import page.Biography
 import section.BiographySection
-import section.DescriptionSection
+import section.AccountsSection
+import section.HandleNameSection
 import theme.rememberTypography
 
 @Composable
@@ -24,7 +24,8 @@ fun PortfolioApp(
             typography = typography,
         ) {
             AppScaffold {
-                DescriptionSection()
+                HandleNameSection()
+                AccountsSection()
                 BiographySection()
             }
         }
