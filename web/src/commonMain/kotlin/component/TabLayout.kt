@@ -17,13 +17,14 @@ import config.MinWidth
 import org.jetbrains.compose.resources.StringResource
 import portfolio.web.generated.resources.*
 
-internal enum class ContentTab(
+enum class ContentTab(
     val label: StringResource,
     val icon: ImageVector,
+    val path: String,
 ) {
-    Biography(Res.string.tab_biography, Icons.Default.Person),
-    MyFavorites(Res.string.tab_my_favourites, Icons.Default.Favorite),
-    Works(Res.string.tab_works, Icons.Default.EmojiEvents),
+    Biography(Res.string.tab_biography, Icons.Default.Person, ""),
+    MyFavorites(Res.string.tab_my_favourites, Icons.Default.Favorite, "my_fave"),
+    Works(Res.string.tab_works, Icons.Default.EmojiEvents, "works"),
 }
 
 @Composable
@@ -49,3 +50,7 @@ internal fun TabLayout(
         ) { content(currentTab.value) }
     }
 }
+
+internal expect fun MutableState<ContentTab>.handleTabChange(
+    next: ContentTab,
+)

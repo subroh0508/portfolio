@@ -7,6 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
+import component.*
 import component.AppScaffold
 import component.ContentTab
 import component.TabLayout
@@ -22,6 +23,7 @@ import theme.rememberTypography
 
 @Composable
 fun PortfolioApp(
+    current: ContentTab,
     useDarkTheme: Boolean = isSystemInDarkTheme(),
 ) {
     val config = rememberAppConfigState(useDarkTheme)
@@ -43,22 +45,24 @@ fun PortfolioApp(
             ) {
                 item { HandleNameSection() }
                 item { AccountsSection() }
-                item { PortfolioContent() }
+                item { PortfolioContent(current) }
             }
         }
     }
 }
 
 @Composable
-private fun PortfolioContent() = TabLayout(
-    ContentTab.Biography,
+private fun PortfolioContent(
+    current: ContentTab,
+) = TabLayout(
+    current,
     tabs = { currentTab ->
         ContentTab.entries.forEach {
             Tab(
                 currentTab.value == it,
                 text = { Text(stringResource(it.label)) },
                 icon = { Icon(it.icon, contentDescription = null) },
-                onClick = { currentTab.value = it },
+                onClick = { currentTab.handleTabChange(it) },
             )
         }
     },

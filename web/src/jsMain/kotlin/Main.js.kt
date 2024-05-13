@@ -9,7 +9,9 @@ fun main() {
             "Portfolio",
             canvasElementId = "PortfolioCanvas",
         ) {
-            PortfolioApp()
+            PortfolioApp(
+                current = buildContentPath(),
+            )
         }
     }
 }

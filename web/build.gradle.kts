@@ -1,8 +1,9 @@
-import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
+import java.util.*
 
 plugins {
     alias(libs.plugins.kotlin.mpp)
     alias(libs.plugins.compose)
+    alias(libs.plugins.buildconfig)
 }
 
 kotlin {
@@ -37,4 +38,18 @@ kotlin {
 
 compose.experimental {
     web.application {}
+}
+
+
+fun Project.localProperties(): Properties = Properties().apply {
+    load(rootProject.file("local.properties").inputStream())
+}
+
+buildConfig {
+    useKotlinOutput { topLevelConstants = true }
+
+    buildConfigField(
+        "HOSTNAME",
+        "\"${localProperties().getProperty("hostname")}\"",
+    )
 }
