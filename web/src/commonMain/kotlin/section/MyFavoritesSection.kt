@@ -4,10 +4,10 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import component.AnimatedSection
+import component.Footer
 import component.IconGrid
 import component.icon.*
 import component.icon.MyFavourite
@@ -17,12 +17,19 @@ import portfolio.web.generated.resources.*
 @Composable
 internal fun MyFavoritesSection(
     visible: Boolean,
-    footer: @Composable () -> Unit,
 ) = AnimatedSection(
     visible,
     modifier = Modifier.fillMaxHeight()
         .padding(32.dp),
 ) {
+    MyDearestGrid()
+    Spacer(Modifier.size(24.dp))
+    LoveGrid()
+    Footer()
+}
+
+@Composable
+private fun MyDearestGrid() {
     Text(
         stringResource(Res.string.label_my_dearest),
         style = MaterialTheme.typography.titleLarge,
@@ -44,9 +51,10 @@ internal fun MyFavoritesSection(
             withCircle = drawable != Res.drawable.kotlin,
         )
     }
+}
 
-    Spacer(Modifier.size(24.dp))
-
+@Composable
+private fun LoveGrid() {
     Text(
         stringResource(Res.string.label_love),
         style = MaterialTheme.typography.titleLarge,
@@ -66,10 +74,4 @@ internal fun MyFavoritesSection(
             withCircle = drawable != Res.drawable.android,
         )
     }
-
-    Spacer(Modifier.weight(1F))
-
-    Box(
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-    ) { footer() }
 }

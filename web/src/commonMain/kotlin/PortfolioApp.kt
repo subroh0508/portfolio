@@ -9,7 +9,6 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import component.AppScaffold
 import component.ContentTab
-import component.Footer
 import component.TabLayout
 import component.TopAppBar
 import config.*
@@ -64,8 +63,8 @@ private fun PortfolioContent() = TabLayout(
         }
     },
     content = { tab ->
-        BiographySection(tab == ContentTab.Biography) { Footer() }
-        MyFavoritesSection(tab == ContentTab.MyFavorites) { Footer() }
-        WorksSection(tab == ContentTab.Works) { Footer() }
+        BiographySection(tab == ContentTab.Biography)
+        MyFavoritesSection(tab == ContentTab.MyFavorites)
+        WorksSection(tab == ContentTab.Works)
     },
 )
