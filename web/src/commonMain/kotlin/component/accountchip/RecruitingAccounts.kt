@@ -1,10 +1,8 @@
-package component.chip
+package component.accountchip
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import component.AccountLink
 import config.isLight
-import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.imageResource
 import org.jetbrains.compose.resources.painterResource
 import portfolio.web.generated.resources.*

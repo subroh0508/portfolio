@@ -9,6 +9,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.PointerIcon
+import androidx.compose.ui.input.pointer.pointerHoverIcon
 import config.ColorTheme
 import config.LocalAppConfigState
 import org.jetbrains.compose.resources.stringResource
@@ -33,6 +35,7 @@ internal fun TopAppBar(
                         ColorTheme.Dark -> ColorTheme.Light
                     }
                 },
+                modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
             ) {
                 Icon(
                     when (config.theme) {

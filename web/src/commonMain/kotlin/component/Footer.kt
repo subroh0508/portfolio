@@ -11,6 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.PointerIcon
+import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import kotlinx.browser.window
@@ -47,6 +49,6 @@ private fun Footer(
             interactionSource = remember { MutableInteractionSource() },
             indication = null,
             onClick = { window.open(RepositoryHref, "_blank") },
-        ),
+        ).pointerHoverIcon(PointerIcon.Hand),
     )
 }

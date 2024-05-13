@@ -7,6 +7,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.PointerIcon
+import androidx.compose.ui.input.pointer.pointerHoverIcon
 import component.*
 import component.AppScaffold
 import component.ContentTab
@@ -63,6 +65,7 @@ private fun PortfolioContent(
                 text = { Text(stringResource(it.label)) },
                 icon = { Icon(it.icon, contentDescription = null) },
                 onClick = { currentTab.handleTabChange(it) },
+                modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
             )
         }
     },

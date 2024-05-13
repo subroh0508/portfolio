@@ -1,4 +1,4 @@
-package component
+package component.accountchip
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.size
@@ -11,6 +11,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.input.pointer.PointerIcon
+import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.unit.dp
 import config.isLight
 import kotlinx.browser.window
@@ -44,6 +46,7 @@ internal fun AccountLink(
                 style = MaterialTheme.typography.bodyMedium,
             )
         },
+        modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
     )
 }
 
@@ -76,6 +79,7 @@ internal fun AccountLink(
                 style = MaterialTheme.typography.bodyMedium,
             )
         },
+        modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
     )
 }
 

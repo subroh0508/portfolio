@@ -4,11 +4,12 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Tag
-import androidx.compose.material.icons.filled.Today
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.PointerIcon
+import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import component.work.Link
@@ -73,7 +74,7 @@ private fun WorkCardThumbnail(
         contentScale = ContentScale.Crop,
     )
 
-    AssistChip(
+    NoRippleAssistChip(
         onClick = { },
         colors = AssistChipDefaults.assistChipColors(
             containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.8F),
@@ -122,6 +123,7 @@ private fun LinkButtons(
         ) {
             FilledTonalIconButton(
                 onClick = { window.open(link.href, "_blank") },
+                modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
             ) {
                 Icon(
                     imageVector = link.icon,

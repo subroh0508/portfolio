@@ -1,8 +1,7 @@
-package component.chip
+package component.accountchip
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import component.AccountLink
 import org.jetbrains.compose.resources.imageResource
 import org.jetbrains.compose.resources.painterResource
 import portfolio.web.generated.resources.*
