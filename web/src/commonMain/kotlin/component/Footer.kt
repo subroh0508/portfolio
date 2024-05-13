@@ -17,6 +17,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import kotlinx.browser.window
 import org.jetbrains.compose.resources.stringResource
+import portfolio.web.LAST_MODIFIED_DATE_TIME
 import portfolio.web.generated.resources.*
 
 
@@ -35,7 +36,7 @@ private fun Footer(
     modifier = modifier.padding(top = 48.dp, bottom = 16.dp),
 ) {
     Text(
-        stringResource(Res.string.last_modified, "2024-05-13T04:04:00+0900"),
+        stringResource(Res.string.last_modified, LAST_MODIFIED_DATE_TIME),
         color = MaterialTheme.colorScheme.outline,
         style = MaterialTheme.typography.bodyMedium,
     )

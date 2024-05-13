@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat
 import java.util.*
 
 plugins {
@@ -49,7 +50,7 @@ buildConfig {
     useKotlinOutput { topLevelConstants = true }
 
     buildConfigField(
-        "HOSTNAME",
-        "\"${localProperties().getProperty("hostname")}\"",
+        "LAST_MODIFIED_DATE_TIME",
+        SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX").format(Date()),
     )
 }
