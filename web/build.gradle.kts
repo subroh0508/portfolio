@@ -54,3 +54,22 @@ buildConfig {
         SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX").format(Date()),
     )
 }
+
+val jsBrowserWebpack = tasks.getByName("jsBrowserProductionWebpack")
+
+val copyDistributions by tasks.registering {
+    doLast {
+        copy {
+            val destinationDir = File("$rootDir/public")
+            if (!destinationDir.exists()) {
+                destinationDir.mkdir()
+            }
+            println(layout.buildDirectory.asFile.get().absoluteFile)
+            val distributions = File("${layout.buildDirectory.asFile.get().absoluteFile}/dist/js/productionExecutable/")
+            from(distributions)
+            into(destinationDir)
+        }
+    }
+}
+
+jsBrowserWebpack.finalizedBy(copyDistributions)
