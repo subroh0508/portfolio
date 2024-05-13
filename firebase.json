@@ -1,0 +1,20 @@
+{
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "gradle/**",
+      "src/**",
+      "**/*.@(kt|kts|properties|bat|scss)",
+      "gradlew"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
