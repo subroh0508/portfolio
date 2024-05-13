@@ -6,7 +6,7 @@ import org.jetbrains.skiko.wasm.onWasmReady
 fun main() {
     onWasmReady {
         CanvasBasedWindow(
-            "Portfolio",
+            "Subroh Nishikori's Portfolio",
             canvasElementId = "PortfolioCanvas",
         ) {
             PortfolioApp(
