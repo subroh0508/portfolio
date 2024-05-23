@@ -37,11 +37,6 @@ kotlin {
     }
 }
 
-compose.experimental {
-    web.application {}
-}
-
-
 fun Project.localProperties(): Properties = Properties().apply {
     load(rootProject.file("local.properties").inputStream())
 }
