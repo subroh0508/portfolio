@@ -13,10 +13,11 @@ import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import config.isLight
-import kotlinx.browser.window
 import org.jetbrains.compose.resources.*
+import utils.openWindow
 
 private val IconSize = 18.dp
 
@@ -25,30 +26,36 @@ internal fun AccountLink(
     bitmap: ImageBitmap,
     label: StringResource,
     href: StringResource,
-) {
-    val hrefRes = stringResource(href)
+) = AccountLink(
+    bitmap,
+    stringResource(label),
+    stringResource(href),
+)
 
-    FilterChip(
-        true,
-        onClick = {
-            window.open(hrefRes, "_blank")
-        },
-        leadingIcon = {
-            Image(
-                bitmap,
-                "Service Icon",
-                modifier = Modifier.size(IconSize),
-            )
-        },
-        label = {
-            Text(
-                stringResource(label),
-                style = MaterialTheme.typography.bodyMedium,
-            )
-        },
-        modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
-    )
-}
+@Composable
+internal fun AccountLink(
+    bitmap: ImageBitmap,
+    label: String,
+    href: String,
+) = FilterChip(
+    true,
+    onClick = { openWindow(href) },
+    leadingIcon = {
+        Image(
+            bitmap,
+            "Service Icon",
+            modifier = Modifier.size(IconSize),
+        )
+    },
+    label = {
+        Text(
+            label,
+            style = MaterialTheme.typography.bodyMedium,
+        )
+    },
+    modifier = Modifier.pointerHoverIcon(PointerIcon.Hand)
+        .testTag(PortfolioTag.ACCOUNT_LINK),
+)
 
 @Composable
 internal fun AccountLink(
@@ -57,31 +64,41 @@ internal fun AccountLink(
     href: StringResource,
     lightColor: Color? = null,
     darkColor: Color? = null,
-) {
-    val hrefRes = stringResource(href)
+) = AccountLink(
+    painter,
+    stringResource(label),
+    stringResource(href),
+    lightColor,
+    darkColor,
+)
 
-    FilterChip(
-        true,
-        onClick = {
-            window.open(hrefRes, "_blank")
-        },
-        leadingIcon = {
-            Image(
-                painter,
-                "Service Icon",
-                modifier = Modifier.size(IconSize),
-                colorFilter = tintColor(lightColor, darkColor),
-            )
-        },
-        label = {
-            Text(
-                stringResource(label),
-                style = MaterialTheme.typography.bodyMedium,
-            )
-        },
-        modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
-    )
-}
+@Composable
+internal fun AccountLink(
+    painter: Painter,
+    label: String,
+    href: String,
+    lightColor: Color? = null,
+    darkColor: Color? = null,
+) = FilterChip(
+    true,
+    onClick = { openWindow(href) },
+    leadingIcon = {
+        Image(
+            painter,
+            "Service Icon",
+            modifier = Modifier.size(IconSize),
+            colorFilter = tintColor(lightColor, darkColor),
+        )
+    },
+    label = {
+        Text(
+            label,
+            style = MaterialTheme.typography.bodyMedium,
+        )
+    },
+    modifier = Modifier.pointerHoverIcon(PointerIcon.Hand)
+        .testTag(PortfolioTag.ACCOUNT_LINK),
+)
 
 @Composable
 private fun tintColor(

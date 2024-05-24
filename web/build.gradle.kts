@@ -1,3 +1,5 @@
+import org.jetbrains.compose.ExperimentalComposeLibrary
+import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -8,6 +10,15 @@ plugins {
 }
 
 kotlin {
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        browser {
+            commonWebpackConfig {
+                outputFileName = "portfoliowebapp.js"
+            }
+        }
+        binaries.executable()
+    }
     js(IR) {
         browser {
             commonWebpackConfig {
@@ -17,8 +28,6 @@ kotlin {
         binaries.executable()
     }
 
-    
-
     sourceSets {
         commonMain {
             dependencies {
@@ -26,7 +35,6 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.material3)
                 implementation(compose.materialIconsExtended)
-                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
             }
         }
@@ -34,6 +42,8 @@ kotlin {
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
+                @OptIn(ExperimentalComposeLibrary::class)
+                implementation(compose.uiTest)
             }
         }
     }
