@@ -1,5 +1,7 @@
+import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.compose.ExperimentalComposeLibrary
 import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
+import org.jetbrains.kotlin.gradle.targets.js.testing.KotlinJsTest
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -41,10 +43,6 @@ kotlin {
     }
 }
 
-fun Project.localProperties(): Properties = Properties().apply {
-    load(rootProject.file("local.properties").inputStream())
-}
-
 buildConfig {
     useKotlinOutput { topLevelConstants = true }
 
@@ -54,7 +52,14 @@ buildConfig {
     )
 }
 
-val wasmJsBrowserWebpack = tasks.getByName("wasmJsBrowserProductionWebpack")
+val wasmJsBrowserTest by tasks.existing(KotlinJsTest::class) {
+    reports.junitXml.required.set(true)
+    testLogging {
+        showExceptions = true
+        showStandardStreams = true
+        events = setOf(TestLogEvent.FAILED, TestLogEvent.PASSED)
+    }
+}
 
 val copyDistributions by tasks.registering {
     doLast {
@@ -71,4 +76,6 @@ val copyDistributions by tasks.registering {
     }
 }
 
-wasmJsBrowserWebpack.finalizedBy(copyDistributions)
+val wasmJsBrowserProductionWebpack by tasks.existing {
+    finalizedBy(copyDistributions)
+}

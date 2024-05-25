@@ -1,0 +1,48 @@
+name: Run unit tests
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.kt'
+      - '**.gradle.kts'
+      - 'config/detekt.yml'
+      - '.github/workflows/test-pr.yml'
+      - 'gradle/libs.versions.toml'
+      - 'gradle/wrapper/gradle-wrapper.properties'
+  pull_request:
+    types:
+      - opened
+      - synchronize
+    paths:
+      - '**.kt'
+      - '**.gradle.kts'
+      - 'config/detekt.yml'
+      - '.github/workflows/test.yml'
+      - 'gradle/libs.versions.toml'
+      - 'gradle/wrapper/gradle-wrapper.properties'
+
+jobs:
+  test:
+    name: Run unit tests on wasm
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: zulu
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v3
+      - run: ./gradlew wasmJsBrowserTest --stacktrace
+      - if: success() || failure()
+        run: ./gradlew wasmJsBrowserTestReport --stacktrace
+      - uses: mikepenz/action-junit-report@v4
+        if: success() || failure()
+        with:
+          report_paths: '**/build/test-results/wasmJsBrowserTest/TEST-*.xml'
+      - uses: actions/upload-artifact@master
+        if: success() || failure()
+        with:
+          name: all-wasm-js-test-reports
+          path: ./build/reports/wasmJsBrowserTest
