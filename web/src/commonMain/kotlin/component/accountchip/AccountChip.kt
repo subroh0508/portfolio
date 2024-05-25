@@ -16,88 +16,48 @@ import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import config.isLight
-import org.jetbrains.compose.resources.*
 import utils.openWindow
 
 private val IconSize = 18.dp
 
 @Composable
 internal fun AccountLink(
+    icon: @Composable () -> Unit,
+    label: String,
+    href: String,
+) = FilterChip(
+    true,
+    onClick = { openWindow(href) },
+    leadingIcon = { icon() },
+    label = {
+        Text(
+            label,
+            style = MaterialTheme.typography.bodyMedium,
+        )
+    },
+    modifier = Modifier.pointerHoverIcon(PointerIcon.Hand)
+        .testTag(PortfolioTag.ACCOUNT_LINK),
+)
+
+@Composable
+internal fun ServiceIcon(
     bitmap: ImageBitmap,
-    label: StringResource,
-    href: StringResource,
-) = AccountLink(
+) = Image(
     bitmap,
-    stringResource(label),
-    stringResource(href),
+    "Service Icon",
+    modifier = Modifier.size(IconSize),
 )
 
 @Composable
-internal fun AccountLink(
-    bitmap: ImageBitmap,
-    label: String,
-    href: String,
-) = FilterChip(
-    true,
-    onClick = { openWindow(href) },
-    leadingIcon = {
-        Image(
-            bitmap,
-            "Service Icon",
-            modifier = Modifier.size(IconSize),
-        )
-    },
-    label = {
-        Text(
-            label,
-            style = MaterialTheme.typography.bodyMedium,
-        )
-    },
-    modifier = Modifier.pointerHoverIcon(PointerIcon.Hand)
-        .testTag(PortfolioTag.ACCOUNT_LINK),
-)
-
-@Composable
-internal fun AccountLink(
+internal fun ServiceIcon(
     painter: Painter,
-    label: StringResource,
-    href: StringResource,
     lightColor: Color? = null,
     darkColor: Color? = null,
-) = AccountLink(
+) = Image(
     painter,
-    stringResource(label),
-    stringResource(href),
-    lightColor,
-    darkColor,
-)
-
-@Composable
-internal fun AccountLink(
-    painter: Painter,
-    label: String,
-    href: String,
-    lightColor: Color? = null,
-    darkColor: Color? = null,
-) = FilterChip(
-    true,
-    onClick = { openWindow(href) },
-    leadingIcon = {
-        Image(
-            painter,
-            "Service Icon",
-            modifier = Modifier.size(IconSize),
-            colorFilter = tintColor(lightColor, darkColor),
-        )
-    },
-    label = {
-        Text(
-            label,
-            style = MaterialTheme.typography.bodyMedium,
-        )
-    },
-    modifier = Modifier.pointerHoverIcon(PointerIcon.Hand)
-        .testTag(PortfolioTag.ACCOUNT_LINK),
+    "Service Icon",
+    modifier = Modifier.size(IconSize),
+    colorFilter = tintColor(lightColor, darkColor),
 )
 
 @Composable

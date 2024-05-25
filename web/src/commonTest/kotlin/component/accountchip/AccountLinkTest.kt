@@ -31,7 +31,7 @@ class AccountLinkTest {
 
             setContent {
                 AccountLink(
-                    bitmap,
+                    icon = { ServiceIcon(bitmap) },
                     SITE_NAME,
                     URL,
                 )

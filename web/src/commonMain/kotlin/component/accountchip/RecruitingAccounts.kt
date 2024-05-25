@@ -5,24 +5,33 @@ import androidx.compose.runtime.Composable
 import config.isLight
 import org.jetbrains.compose.resources.imageResource
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 import portfolio.web.generated.resources.*
 import portfolio.web.generated.resources.Res
 import portfolio.web.generated.resources.wantedly_dark
 
 @Composable
 internal fun Wantedly() = AccountLink(
-    if (MaterialTheme.colorScheme.isLight()) {
-        painterResource(Res.drawable.wantedly_light)
-    } else {
-        painterResource(Res.drawable.wantedly_dark)
+    icon = {
+        ServiceIcon(
+            if (MaterialTheme.colorScheme.isLight()) {
+                painterResource(Res.drawable.wantedly_light)
+            } else {
+                painterResource(Res.drawable.wantedly_dark)
+            },
+        )
     },
-    Res.string.wantedly,
-    Res.string.href_wantedly,
+    stringResource(Res.string.wantedly),
+    stringResource(Res.string.href_wantedly),
 )
 
 @Composable
 internal fun Youtrust() = AccountLink(
-    imageResource(Res.drawable.youtrust),
-    Res.string.youtrust,
-    Res.string.href_youtrust,
+    icon = {
+        ServiceIcon(
+            imageResource(Res.drawable.youtrust),
+        )
+    },
+    stringResource(Res.string.youtrust),
+    stringResource(Res.string.href_youtrust),
 )
