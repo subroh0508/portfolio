@@ -3,7 +3,6 @@ package component
 import PortfolioTag
 import androidx.compose.material3.Text
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.test.*
@@ -44,11 +43,11 @@ class TopAppBarTest {
         onNodeWithTag(PortfolioTag.TOP_APP_BAR_COLOR_THEME_BUTTON)
             .performClick()
 
-        assertEquals(appConfigState.theme, ColorTheme.Dark)
+        assertEquals(ColorTheme.Dark, appConfigState.theme)
 
         onNodeWithTag(PortfolioTag.TOP_APP_BAR_COLOR_THEME_BUTTON)
             .performClick()
 
-        assertEquals(appConfigState.theme, ColorTheme.Light)
+        assertEquals(ColorTheme.Light, appConfigState.theme)
     }
 }

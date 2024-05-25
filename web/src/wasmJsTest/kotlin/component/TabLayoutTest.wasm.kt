@@ -5,9 +5,9 @@ import kotlinx.browser.window
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class TabLayoutTest {
+class TabLayoutTestWasm {
     @Test
-    fun testHandleTabChangeExtension() {
+    fun HandleTabChange_shouldChangeLocationPathname() {
         listOf(
             ContentTab.Biography to "",
             ContentTab.MyFavorites to "my_fave",
