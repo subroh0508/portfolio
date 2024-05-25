@@ -1,6 +1,8 @@
 internal object PortfolioTag {
     const val ACCOUNT_LINK = "AccountLink"
 
+    const val CARD_GRID_COLUMN = "CardGridColumn"
+
     const val ICON_GRID_ROW = "IconGridRow"
 
     const val TOP_APP_BAR_TITLE = "TopAppBarTitle"
