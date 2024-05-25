@@ -1,3 +1,7 @@
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.jetbrains.compose.ExperimentalComposeLibrary
+import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
+import org.jetbrains.kotlin.gradle.targets.js.testing.KotlinJsTest
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -8,7 +12,8 @@ plugins {
 }
 
 kotlin {
-    js(IR) {
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
         browser {
             commonWebpackConfig {
                 outputFileName = "portfoliowebapp.js"
@@ -24,7 +29,6 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.material3)
                 implementation(compose.materialIconsExtended)
-                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
             }
         }
@@ -32,13 +36,11 @@ kotlin {
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
+                @OptIn(ExperimentalComposeLibrary::class)
+                implementation(compose.uiTest)
             }
         }
     }
-}
-
-fun Project.localProperties(): Properties = Properties().apply {
-    load(rootProject.file("local.properties").inputStream())
 }
 
 buildConfig {
@@ -50,7 +52,14 @@ buildConfig {
     )
 }
 
-val jsBrowserWebpack = tasks.getByName("jsBrowserProductionWebpack")
+val wasmJsBrowserTest by tasks.existing(KotlinJsTest::class) {
+    reports.junitXml.required.set(true)
+    testLogging {
+        showExceptions = true
+        showStandardStreams = true
+        events = setOf(TestLogEvent.FAILED, TestLogEvent.PASSED)
+    }
+}
 
 val copyDistributions by tasks.registering {
     doLast {
@@ -59,12 +68,13 @@ val copyDistributions by tasks.registering {
             if (!destinationDir.exists()) {
                 destinationDir.mkdir()
             }
-            println(layout.buildDirectory.asFile.get().absoluteFile)
-            val distributions = File("${layout.buildDirectory.asFile.get().absoluteFile}/dist/js/productionExecutable/")
+            val distributions = File("${layout.buildDirectory.asFile.get().absoluteFile}/dist/wasmJs/productionExecutable/")
             from(distributions)
             into(destinationDir)
         }
     }
 }
 
-jsBrowserWebpack.finalizedBy(copyDistributions)
+val wasmJsBrowserProductionWebpack by tasks.existing {
+    finalizedBy(copyDistributions)
+}

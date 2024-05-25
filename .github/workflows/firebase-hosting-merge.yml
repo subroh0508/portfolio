@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: './gradlew :web:jsBrowserProductionWebpack'
+      - run: './gradlew :web:wasmJsBrowserProductionWebpack'
         env:
           TZ: 'Asia/Tokyo'
       - uses: FirebaseExtended/action-hosting-deploy@v0

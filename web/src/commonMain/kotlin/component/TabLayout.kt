@@ -30,25 +30,22 @@ enum class ContentTab(
 @Composable
 internal fun TabLayout(
     current: ContentTab,
+    tabState: MutableState<ContentTab> = remember { mutableStateOf(current) },
     tabs: @Composable (MutableState<ContentTab>) -> Unit,
     content: @Composable (ContentTab) -> Unit,
+) = Column(
+    modifier = Modifier.fillMaxWidth(),
+    horizontalAlignment = Alignment.CenterHorizontally,
 ) {
-    val currentTab = remember { mutableStateOf(current) }
+    TabRow(
+        selectedTabIndex = tabState.value.ordinal,
+        tabs = { tabs(tabState) },
+        modifier = Modifier.width(MinWidth),
+    )
 
-    Column(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        TabRow(
-            selectedTabIndex = currentTab.value.ordinal,
-            tabs = { tabs(currentTab) },
-            modifier = Modifier.width(MinWidth),
-        )
-
-        Box(
-            contentAlignment = Alignment.TopCenter,
-        ) { content(currentTab.value) }
-    }
+    Box(
+        contentAlignment = Alignment.TopCenter,
+    ) { content(tabState.value) }
 }
 
 internal expect fun MutableState<ContentTab>.handleTabChange(

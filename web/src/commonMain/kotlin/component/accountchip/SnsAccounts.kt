@@ -4,27 +4,40 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import org.jetbrains.compose.resources.imageResource
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 import portfolio.web.generated.resources.*
 
 @Composable
 internal fun X() = AccountLink(
-    painterResource(Res.drawable.x),
-    Res.string.x,
-    Res.string.href_x,
-    lightColor = Color.Black,
-    darkColor = Color.White,
+    icon = {
+        ServiceIcon(
+            painterResource(Res.drawable.x),
+            lightColor = Color.Black,
+            darkColor = Color.White,
+        )
+    },
+    stringResource(Res.string.x),
+    stringResource(Res.string.href_x),
 )
 
 @Composable
 internal fun Bluesky() = AccountLink(
-    painterResource(Res.drawable.bluesky),
-    Res.string.bluesky,
-    Res.string.href_bluesky,
+    icon = {
+        ServiceIcon(
+            painterResource(Res.drawable.bluesky),
+        )
+    },
+    stringResource(Res.string.bluesky),
+    stringResource(Res.string.href_bluesky),
 )
 
 @Composable
 internal fun Facebook() = AccountLink(
-    imageResource(Res.drawable.facebook),
-    Res.string.facebook,
-    Res.string.href_facebook,
+    icon = {
+        ServiceIcon(
+            imageResource(Res.drawable.facebook),
+        )
+    },
+    stringResource(Res.string.facebook),
+    stringResource(Res.string.href_facebook),
 )

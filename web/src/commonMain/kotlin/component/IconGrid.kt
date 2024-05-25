@@ -1,8 +1,10 @@
 package component
 
+import PortfolioTag
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.DrawableResource
@@ -18,7 +20,8 @@ internal fun IconGrid(
     Column {
         resource.toList().chunked(chunkedSize).forEach { row ->
             Row(
-                modifier = Modifier.padding(vertical = 8.dp),
+                modifier = Modifier.padding(vertical = 8.dp)
+                    .testTag(PortfolioTag.ICON_GRID_ROW),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) { row.forEach { (drawable, string) -> content(drawable, string) } }
         }

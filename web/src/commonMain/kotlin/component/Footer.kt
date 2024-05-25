@@ -15,10 +15,10 @@ import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
-import kotlinx.browser.window
 import org.jetbrains.compose.resources.stringResource
 import portfolio.web.LAST_MODIFIED_DATE_TIME
 import portfolio.web.generated.resources.*
+import utils.openWindow
 
 
 @Composable
@@ -49,7 +49,7 @@ private fun Footer(
         modifier = Modifier.clickable(
             interactionSource = remember { MutableInteractionSource() },
             indication = null,
-            onClick = { window.open(RepositoryHref, "_blank") },
+            onClick = { openWindow(RepositoryHref) },
         ).pointerHoverIcon(PointerIcon.Hand),
     )
 }
