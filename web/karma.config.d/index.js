@@ -16,7 +16,7 @@ function KarmaWebpackOutputFramework(config) {
     pattern: `${controller.outputPath}/**/*`,
     included: false,
     served: true,
-    watched: false
+    watched: false,
   })
 }
 
@@ -26,3 +26,23 @@ const KarmaWebpackOutputPlugin = {
 
 config.plugins.push(KarmaWebpackOutputPlugin);
 config.frameworks.push("webpack-output");
+
+// see: https://youtrack.jetbrains.com/issue/KT-42923
+const PROJECT_PATH = require('path').resolve(__dirname, '../../../../web');
+
+config.middleware = config.middleware || [];
+config.middleware.push('resource-loader');
+
+function ResourceLoaderMiddleware() {
+  const fs = require('fs');
+
+  return function (request, response, next) {
+    const content = fs.readFileSync(PROJECT_PATH + '/build/processedResources/wasmJs/main' + decodeURI(request.originalUrl));
+    response.writeHead(200);
+    response.end(content);
+  }
+}
+
+config.plugins.push({
+  'middleware:resource-loader': ['factory', ResourceLoaderMiddleware]
+});

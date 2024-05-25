@@ -1,6 +1,5 @@
 package component
 
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import kotlinx.browser.window
 import kotlin.test.Test

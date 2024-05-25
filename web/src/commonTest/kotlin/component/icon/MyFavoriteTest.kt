@@ -1,32 +1,25 @@
 package component.icon
 
 import androidx.compose.ui.test.*
-import assertion.assertsEqualsHref
-import kotlinx.coroutines.test.runTest
-import mock.mockWindowOpen
-import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.imageResource
 import portfolio.web.generated.resources.Res
-import toImageBitmap
+import portfolio.web.generated.resources.kotlin
 import kotlin.test.Test
 
 private const val CONTENT_DESCRIPTION = "test"
 
-@OptIn(ExperimentalTestApi::class, ExperimentalResourceApi::class)
+@OptIn(ExperimentalTestApi::class)
 class MyFavoriteTest {
     @Test
     fun shouldDisplay() = runComposeUiTest {
-        runTest {
-            val bitmap = Res.readBytes("test.png").toImageBitmap()
-
-            setContent {
-                MyFavourite(
-                    bitmap,
-                    contentDescription = CONTENT_DESCRIPTION,
-                )
-            }
-
-            onNodeWithContentDescription(CONTENT_DESCRIPTION)
-                .assertIsDisplayed()
+        setContent {
+            MyFavourite(
+                imageResource(Res.drawable.kotlin),
+                contentDescription = CONTENT_DESCRIPTION,
+            )
         }
+
+        onNodeWithContentDescription(CONTENT_DESCRIPTION)
+            .assertIsDisplayed()
     }
 }
