@@ -41,7 +41,6 @@ class AccountLinkTest {
                 .assertTextEquals(SITE_NAME)
                 .performClick()
 
-
             assertsEqualsHref(URL)
         }
     }

@@ -19,14 +19,6 @@ kotlin {
         }
         binaries.executable()
     }
-    js(IR) {
-        browser {
-            commonWebpackConfig {
-                outputFileName = "portfoliowebapp.js"
-            }
-        }
-        binaries.executable()
-    }
 
     sourceSets {
         commonMain {
@@ -62,7 +54,7 @@ buildConfig {
     )
 }
 
-val jsBrowserWebpack = tasks.getByName("jsBrowserProductionWebpack")
+val wasmJsBrowserWebpack = tasks.getByName("wasmJsBrowserProductionWebpack")
 
 val copyDistributions by tasks.registering {
     doLast {
@@ -79,4 +71,4 @@ val copyDistributions by tasks.registering {
     }
 }
 
-jsBrowserWebpack.finalizedBy(copyDistributions)
+wasmJsBrowserWebpack.finalizedBy(copyDistributions)
