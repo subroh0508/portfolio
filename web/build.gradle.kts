@@ -68,8 +68,7 @@ val copyDistributions by tasks.registering {
             if (!destinationDir.exists()) {
                 destinationDir.mkdir()
             }
-            println(layout.buildDirectory.asFile.get().absoluteFile)
-            val distributions = File("${layout.buildDirectory.asFile.get().absoluteFile}/dist/js/productionExecutable/")
+            val distributions = File("${layout.buildDirectory.asFile.get().absoluteFile}/dist/wasmJs/productionExecutable/")
             from(distributions)
             into(destinationDir)
         }
