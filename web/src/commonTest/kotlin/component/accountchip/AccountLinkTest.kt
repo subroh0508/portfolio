@@ -19,11 +19,10 @@ import kotlin.test.Test
 private const val SITE_NAME = "Site Name"
 private const val URL = "https://example.com"
 
-@OptIn(ExperimentalTestApi::class)
+@OptIn(ExperimentalTestApi::class, ExperimentalResourceApi::class)
 class AccountLinkTest {
-    @OptIn(ExperimentalResourceApi::class)
     @Test
-    fun testAccountLintTest() = runComposeUiTest {
+    fun shouldOpenWindowIfClick() = runComposeUiTest {
         mockWindowOpen()
 
         runTest {

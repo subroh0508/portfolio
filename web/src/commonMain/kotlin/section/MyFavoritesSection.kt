@@ -11,6 +11,7 @@ import component.Footer
 import component.IconGrid
 import component.icon.*
 import component.icon.MyFavourite
+import org.jetbrains.compose.resources.imageResource
 import org.jetbrains.compose.resources.stringResource
 import portfolio.web.generated.resources.*
 
@@ -46,7 +47,7 @@ private fun MyDearestGrid() {
         Res.drawable.temari to DescriptionTemari,
     ) { drawable, string ->
         MyFavourite(
-            drawable,
+            imageResource(drawable),
             string,
             withCircle = drawable != Res.drawable.kotlin,
         )
@@ -69,7 +70,7 @@ private fun LoveGrid() {
         Res.drawable.yu to DescriptionYu,
     ) { drawable, string ->
         MyFavourite(
-            drawable,
+            imageResource(drawable),
             string,
             withCircle = drawable != Res.drawable.android,
         )
