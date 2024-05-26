@@ -23,13 +23,13 @@ internal fun CardGrid(
     Row(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        (0..<chunkedSize).forEach { i ->
+        for (i in 0..<chunkedSize) {
             Column(
                 modifier = Modifier.weight(1F)
                     .testTag(PortfolioTag.CARD_GRID_COLUMN),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
-                chunkedWorks.forEach work@ { row ->
+                chunkedWorks.forEach work@{ row ->
                     content(row.getOrNull(i) ?: return@work)
                 }
             }

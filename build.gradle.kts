@@ -31,7 +31,7 @@ val detektAll by tasks.registering(Detekt::class) {
     config.setFrom(listOf(rootProject.files("config/detekt.yml")))
 
     include("**/*.kt", "**/**.kts")
-    exclude("**/resources/**", "**/composeResources/**","**/build/**")
+    exclude("**/resources/**", "**/composeResources/**", "**/build/**")
 
     reports {
         html {

@@ -26,7 +26,7 @@ class TopAppBarTest {
 
         setContent {
             CompositionLocalProvider(
-                LocalAppConfigState provides  appConfigState,
+                LocalAppConfigState provides appConfigState,
             ) {
                 TopAppBar(title = {
                     Text(

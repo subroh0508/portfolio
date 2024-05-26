@@ -20,7 +20,6 @@ import portfolio.web.LAST_MODIFIED_DATE_TIME
 import portfolio.web.generated.resources.*
 import utils.openWindow
 
-
 @Composable
 internal fun ColumnScope.Footer() = Footer(
     modifier = Modifier.align(Alignment.CenterHorizontally),

@@ -11,9 +11,10 @@ import portfolio.web.generated.resources.github
 import portfolio.web.generated.resources.href_github
 import portfolio.web.generated.resources.lapras
 
+@Suppress("MagicNumber")
 @Composable
 internal fun GitHub() = AccountLink(
-    icon =  {
+    icon = {
         ServiceIcon(
             painterResource(Res.drawable.github),
             lightColor = Color(0xFF24292F),
