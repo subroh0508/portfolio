@@ -27,22 +27,19 @@ const KarmaWebpackOutputPlugin = {
 config.plugins.push(KarmaWebpackOutputPlugin);
 config.frameworks.push("webpack-output");
 
-// see: https://youtrack.jetbrains.com/issue/KT-42923
-const PROJECT_PATH = require('path').resolve(__dirname, '../../../../web');
+// see: https://github.com/JetBrains/compose-multiplatform/blob/master/components/resources/library/karma.config.d/wasm/config.js
+const path = require("path");
 
-config.middleware = config.middleware || [];
-config.middleware.push('resource-loader');
+const basePath = path.resolve(__dirname, "../../../../web");
+const resourcesPath = path.resolve(basePath, "build/processedResources/wasmJs/main");
 
-function ResourceLoaderMiddleware() {
-  const fs = require('fs');
+config.proxies["/"] = resourcesPath;
 
-  return function (request, response, next) {
-    const content = fs.readFileSync(PROJECT_PATH + '/build/processedResources/wasmJs/main' + decodeURI(request.originalUrl));
-    response.writeHead(200);
-    response.end(content);
-  }
-}
-
-config.plugins.push({
-  'middleware:resource-loader': ['factory', ResourceLoaderMiddleware]
-});
+config.files = [
+  { pattern: path.resolve(resourcesPath, "**/*.cvr"), included: false, served: true, watched: false },
+  { pattern: path.resolve(resourcesPath, "**/*.png"), included: false, served: true, watched: false },
+  { pattern: path.resolve(resourcesPath, "**/*.jpg"), included: false, served: true, watched: false },
+  { pattern: path.resolve(resourcesPath, "**/*.webp"), included: false, served: true, watched: false },
+  { pattern: path.resolve(resourcesPath, "**/*.xml"), included: false, served: true, watched: false },
+  { pattern: path.resolve(resourcesPath, "**/*.ttf"), included: false, served: true, watched: false },
+].concat(config.files);
