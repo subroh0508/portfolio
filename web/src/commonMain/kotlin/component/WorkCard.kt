@@ -53,6 +53,7 @@ internal fun WorkCard(
             imageResource(work.thumbnail),
             contentDescription = null,
             contentScale = ContentScale.Crop,
+            modifier = Modifier.fillMaxSize(),
         )
     },
     modifier = modifier,
