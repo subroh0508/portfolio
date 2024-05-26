@@ -67,6 +67,7 @@ private val TitleSmallSize = 14.sp
 private val TitleSmallTracking = 0.1.sp
 private val TitleSmallWeight = FontWeight.Medium
 
+@Suppress("LongMethod")
 @Composable
 fun rememberTypography(): Typography {
     val fontFamily = rememberFontFamily()

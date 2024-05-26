@@ -14,7 +14,6 @@ import component.icon.MyFavourite
 import component.icon.MyFavouriteImageSize
 import org.jetbrains.compose.resources.imageResource
 import portfolio.web.generated.resources.Res
-import portfolio.web.generated.resources.android
 import portfolio.web.generated.resources.kotlin
 import kotlin.test.Test
 

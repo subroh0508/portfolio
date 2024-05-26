@@ -9,5 +9,6 @@ enum class ColorTheme(val schema: ColorScheme) {
     Dark(theme.Dark),
 }
 
+@Suppress("MagicNumber")
 @Composable
 fun ColorScheme.isLight() = this.background.luminance() > 0.5F

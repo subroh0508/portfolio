@@ -21,7 +21,7 @@ import portfolio.web.generated.resources.id
 import portfolio.web.generated.resources.name
 
 @Composable
-internal fun HandleNameSection() = Column (
+internal fun HandleNameSection() = Column(
     modifier = Modifier.fillMaxWidth(),
     horizontalAlignment = Alignment.CenterHorizontally,
 ) {

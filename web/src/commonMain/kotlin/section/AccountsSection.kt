@@ -41,6 +41,7 @@ private fun ResponsiveRow(
     vararg chip: @Composable RowScope.() -> Unit,
 ) = ResponsiveRow(chip.toList())
 
+@Suppress("MagicNumber")
 @Composable
 private fun ResponsiveRow(
     chip: List<@Composable RowScope.() -> Unit>,

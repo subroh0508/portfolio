@@ -9,7 +9,6 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.test.*
 import assertion.assertsEqualsHref
-import component.work.Noctiluca
 import component.work.Time
 import mock.mockWindowOpen
 import org.jetbrains.compose.resources.imageResource
