@@ -3,8 +3,7 @@ import org.jetbrains.kotlin.gradle.targets.js.testing.KotlinJsTest
 
 plugins {
     alias(libs.plugins.kotlin.mpp) apply false
-    alias(libs.plugins.jetbrains.compose) apply false
-    alias(libs.plugins.compose.compiler) apply false
+    alias(libs.plugins.compose) apply false
     alias(libs.plugins.buildconfig) apply false
 
     alias(libs.plugins.detekt)
