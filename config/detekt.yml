@@ -1003,7 +1003,7 @@ formatting:
     maxLineLength: 120
     ignoreBackTickedIdentifier: false
   ModifierListSpacing:
-    active: false # TODO true
+    active: true
     autoCorrect: true
   ModifierOrdering:
     active: true
@@ -1025,13 +1025,13 @@ formatting:
     active: true
     autoCorrect: true
   NoConsecutiveComments:
-    active: false # TODO true
+    active: true
     autoCorrect: true
   NoEmptyClassBody:
     active: true
     autoCorrect: true
   NoEmptyFirstLineInClassBody:
-    active: false # TODO true
+    active: true
     autoCorrect: true
     indentSize: 4
   NoEmptyFirstLineInMethodBlock:
@@ -1050,7 +1050,7 @@ formatting:
     active: true
     autoCorrect: true
   NoSingleLineBlockComment:
-    active: false # TODO true
+    active: true
     autoCorrect: true
     indentSize: 4
   NoTrailingSpaces:
@@ -1066,7 +1066,7 @@ formatting:
     active: false
     packagesToUseImportOnDemandProperty: 'java.util.*,kotlinx.android.synthetic.**'
   NullableTypeSpacing:
-    active: false # TODO true
+    active: true
     autoCorrect: true
   PackageName:
     active: true
@@ -1080,7 +1080,7 @@ formatting:
     indentSize: 4
     maxLineLength: 120
   ParameterWrapping:
-    active: false # TODO true
+    active: true
     autoCorrect: true
     indentSize: 4
     maxLineLength: 120
@@ -1088,7 +1088,7 @@ formatting:
     active: false
     autoCorrect: true
   PropertyWrapping:
-    active: false # TODO true
+    active: true
     autoCorrect: true
     indentSize: 4
     maxLineLength: 120
@@ -1162,7 +1162,7 @@ formatting:
     autoCorrect: true
     indentSize: 4
   UnnecessaryParenthesesBeforeTrailingLambda:
-    active: false # TODO true
+    active: true
     autoCorrect: true
   Wrapping:
     active: true
