@@ -7,7 +7,8 @@ import java.util.*
 
 plugins {
     alias(libs.plugins.kotlin.mpp)
-    alias(libs.plugins.compose)
+    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.buildconfig)
 }
 
