@@ -77,6 +77,6 @@ val copyDistributions by tasks.registering {
     }
 }
 
-val wasmJsBrowserProductionWebpack by tasks.existing {
+val wasmJsBrowserDistribution by tasks.existing {
     finalizedBy(copyDistributions)
 }
