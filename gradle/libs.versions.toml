@@ -1,6 +1,6 @@
 [versions]
 kotlin = "2.0.0"
-compose = "1.6.10"
+compose = "1.6.11"
 buildconfig = "5.3.5"
 detekt = "1.23.6"
 
