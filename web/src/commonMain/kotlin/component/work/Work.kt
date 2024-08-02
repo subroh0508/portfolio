@@ -187,7 +187,6 @@ internal val Works = listOf(
     KotlinFest2024,
     KotlinFest2022,
     KotlinFest2019,
-    KotlinFest2019,
     DroidKaigi2019,
     KotlinMaterialUi,
 )
