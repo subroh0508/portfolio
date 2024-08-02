@@ -82,6 +82,30 @@ internal val ColorMaster = Work(
     Res.drawable.colormaster,
 )
 
+internal val KotlinFest2024 = Work(
+    Res.string.work_kotlinfest_2024_headline,
+    Res.string.work_kotlinfest_2024_description,
+    WorkType.Conference,
+    listOf(
+        Link(
+            "https://speakerdeck.com/subroh0508/arayuruapuriwocompose-multiplatformdeshu-kitai-neiteibuapurino-anoji-neng-wosi-tatihadouzuo-ruka",
+            Res.string.slide,
+            Icons.Default.Description,
+            "Kotlin Fest 2024 Slide",
+        ),
+        /*
+        Link(
+            "https://youtu.be/9KywTQJej1Q",
+            Res.string.movie,
+            Icons.Default.Movie,
+            "Kotlin Fest 2024 YouTube",
+        ),
+        */
+    ),
+    Time.Event(2024),
+    Res.drawable.kotlinfest2024,
+)
+
 internal val KotlinFest2022 = Work(
     Res.string.work_kotlinfest_2022_headline,
     Res.string.work_kotlinfest_2022_description,
@@ -160,8 +184,10 @@ internal val KotlinMaterialUi = Work(
 internal val Works = listOf(
     Noctiluca,
     ColorMaster,
+    KotlinFest2024,
     KotlinFest2022,
     KotlinFest2019,
     KotlinFest2019,
+    DroidKaigi2019,
     KotlinMaterialUi,
 )
