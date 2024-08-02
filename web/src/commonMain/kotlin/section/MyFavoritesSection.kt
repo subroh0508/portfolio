@@ -67,6 +67,7 @@ private fun LoveGrid() {
         Res.drawable.react to DescriptionReact,
         Res.drawable.android to DescriptionAndroid,
         Res.drawable.sayaka to DescriptionSayaka,
+        Res.drawable.you to DescriptionYou,
         Res.drawable.yu to DescriptionYu,
     ) { drawable, string ->
         MyFavourite(
