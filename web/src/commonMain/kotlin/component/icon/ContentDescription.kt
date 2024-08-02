@@ -13,4 +13,5 @@ const val DescriptionMizuki = "Mizuki Makabe"
 const val DescriptionTemari = "Temari Tsukimura"
 
 const val DescriptionSayaka = "Sayaka Murano"
+const val DescriptionYou = "You Watanabe"
 const val DescriptionYu = "Yu Takasaki"
