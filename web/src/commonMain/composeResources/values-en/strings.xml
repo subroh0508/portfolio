@@ -57,6 +57,9 @@
     <string name="work_kotlinfest_2022_headline">Kotlin Fest 2022</string>
     <string name="work_kotlinfest_2022_description">I talked "I want to develop the frontend of a web application by Jetpack Compose! -Does Compose for Web dream of modern web applications?-" at Kotlin Fest 2022.</string>
 
+    <string name="work_kotlinfest_2024_headline">Kotlin Fest 2022</string>
+    <string name="work_kotlinfest_2024_description">I talked "I want to write every app in Compose Multiplatform! -How we create 'that feature' in native apps-" at Kotlin Fest 2024.</string>
+
     <string name="work_colormaster_headline">COLOR M@STER</string>
     <string name="work_colormaster_description">This application provides various functions for the image colors of characters in THE iDOLM@STER. Currently, two functions, "Search" and "Penlight", are implemented. \n\nThis Application is developed by Kotlin Multiplatform.</string>
 
