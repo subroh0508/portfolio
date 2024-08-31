@@ -41,6 +41,16 @@ kotlin {
                 implementation(compose.uiTest)
             }
         }
+
+        jsMain {
+            dependencies {
+                implementation(dependencies.platform(libs.kotlin.wrappers.bom))
+                implementation(libs.kotlin.js)
+                implementation(libs.kotlin.react)
+                implementation(libs.kotlin.emotion)
+                implementation(libs.kotlin.mui.material)
+            }
+        }
     }
 }
 
