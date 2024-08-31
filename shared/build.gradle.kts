@@ -15,27 +15,22 @@ plugins {
 kotlin {
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
-        browser {
-            commonWebpackConfig {
-                outputFileName = "portfoliowebapp.js"
-            }
-        }
-        binaries.executable()
+        browser()
     }
-
     js {
-        browser {
-            commonWebpackConfig {
-                outputFileName = "portfoliowebapp.js"
-            }
-        }
-        binaries.executable()
+        browser()
     }
 
+    applyDefaultHierarchyTemplate()
     sourceSets {
-        val jsWasmMain by creating {
+        all {
+            languageSettings {
+                optIn("org.jetbrains.compose.resources.ExperimentalResourceApi")
+            }
+        }
+
+        commonMain {
             dependencies {
-                implementation(project(":shared"))
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material3)
@@ -44,15 +39,24 @@ kotlin {
             }
         }
 
+        commonTest {
+            dependencies {
+                implementation(kotlin("test"))
+                @OptIn(ExperimentalComposeLibrary::class)
+                implementation(compose.uiTest)
+            }
+        }
+
+        val jsWasmMain by creating {
+            dependsOn(commonMain.get())
+        }
+
         val jsMain by getting {
             dependsOn(jsWasmMain)
-            dependencies {
-                implementation(dependencies.platform(libs.kotlin.wrappers.bom))
-                implementation(libs.kotlin.js)
-                implementation(libs.kotlin.react)
-                implementation(libs.kotlin.emotion)
-                implementation(libs.kotlin.mui.material)
-            }
+        }
+
+        val wasmJsMain by getting {
+            dependsOn(jsWasmMain)
         }
     }
 }
@@ -73,23 +77,4 @@ val wasmJsBrowserTest by tasks.existing(KotlinJsTest::class) {
         showStandardStreams = true
         events = setOf(TestLogEvent.FAILED, TestLogEvent.PASSED)
     }
-}
-
-val copyDistributions by tasks.registering {
-    doLast {
-        copy {
-            val destinationDir = File("$rootDir/public")
-            if (!destinationDir.exists()) {
-                destinationDir.mkdir()
-            }
-            val distributions =
-                File("${layout.buildDirectory.asFile.get().absoluteFile}/dist/wasmJs/productionExecutable/")
-            from(distributions)
-            into(destinationDir)
-        }
-    }
-}
-
-val wasmJsBrowserDistribution by tasks.existing {
-    finalizedBy(copyDistributions)
 }

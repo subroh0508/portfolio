@@ -15,4 +15,7 @@ dependencyResolutionManagement {
     }
 }
 
-include(":web")
+include(
+    ":shared",
+    ":web",
+)
