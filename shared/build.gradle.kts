@@ -47,11 +47,11 @@ kotlin {
             dependsOn(commonMain.get())
         }
 
-        val jsMain by getting {
+        jsMain {
             dependsOn(jsWasmMain)
         }
 
-        val wasmJsMain by getting {
+        wasmJsMain {
             dependsOn(jsWasmMain)
         }
     }
