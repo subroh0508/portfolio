@@ -14,7 +14,9 @@ val wasmJsBrowserTestReport by tasks.registering(TestReport::class) {
     destinationDirectory.set(layout.buildDirectory.file("reports/wasmJsBrowserTest").get().asFile)
     subprojects.forEach {
         val wasmJsBrowserTest by it.tasks.existing(KotlinJsTest::class)
-        testResults.from(wasmJsBrowserTest.get().binaryResultsDirectory)
+        val task = wasmJsBrowserTest.orNull ?: return@forEach
+
+        testResults.from(task.binaryResultsDirectory)
     }
 }
 
