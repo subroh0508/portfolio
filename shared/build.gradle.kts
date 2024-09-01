@@ -14,12 +14,8 @@ plugins {
 
 kotlin {
     @OptIn(ExperimentalWasmDsl::class)
-    wasmJs {
-        browser()
-    }
-    js {
-        browser()
-    }
+    wasmJs { browser() }
+    js { browser() }
 
     applyDefaultHierarchyTemplate()
     sourceSets {

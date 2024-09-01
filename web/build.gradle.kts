@@ -1,9 +1,4 @@
-import org.gradle.api.tasks.testing.logging.TestLogEvent
-import org.jetbrains.compose.ExperimentalComposeLibrary
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
-import org.jetbrains.kotlin.gradle.targets.js.testing.KotlinJsTest
-import java.text.SimpleDateFormat
-import java.util.*
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
     alias(libs.plugins.kotlin.mpp)
@@ -13,40 +8,27 @@ plugins {
 }
 
 kotlin {
-    @OptIn(ExperimentalWasmDsl::class)
-    wasmJs {
-        browser {
-            commonWebpackConfig {
-                outputFileName = "portfoliowebapp.js"
-            }
-        }
-        binaries.executable()
-    }
-
     js {
         browser {
             commonWebpackConfig {
                 outputFileName = "portfoliowebapp.js"
             }
         }
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        compilerOptions {
+            target.set("es2015")
+        }
         binaries.executable()
     }
 
     sourceSets {
-        val jsWasmMain by creating {
+        jsMain {
             dependencies {
                 implementation(project(":shared"))
                 implementation(compose.runtime)
                 implementation(compose.foundation)
-                implementation(compose.material3)
-                implementation(compose.materialIconsExtended)
                 implementation(compose.components.resources)
-            }
-        }
 
-        val jsMain by getting {
-            dependsOn(jsWasmMain)
-            dependencies {
                 implementation(dependencies.platform(libs.kotlin.wrappers.bom))
                 implementation(libs.kotlin.js)
                 implementation(libs.kotlin.react)
@@ -54,24 +36,6 @@ kotlin {
                 implementation(libs.kotlin.mui.material)
             }
         }
-    }
-}
-
-buildConfig {
-    useKotlinOutput { topLevelConstants = true }
-
-    buildConfigField(
-        "LAST_MODIFIED_DATE_TIME",
-        SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX").format(Date()),
-    )
-}
-
-val wasmJsBrowserTest by tasks.existing(KotlinJsTest::class) {
-    reports.junitXml.required.set(true)
-    testLogging {
-        showExceptions = true
-        showStandardStreams = true
-        events = setOf(TestLogEvent.FAILED, TestLogEvent.PASSED)
     }
 }
 
@@ -83,13 +47,13 @@ val copyDistributions by tasks.registering {
                 destinationDir.mkdir()
             }
             val distributions =
-                File("${layout.buildDirectory.asFile.get().absoluteFile}/dist/wasmJs/productionExecutable/")
+                File("${layout.buildDirectory.asFile.get().absoluteFile}/dist/js/productionExecutable/")
             from(distributions)
             into(destinationDir)
         }
     }
 }
 
-val wasmJsBrowserDistribution by tasks.existing {
+val jsBrowserDistribution by tasks.existing {
     finalizedBy(copyDistributions)
 }
