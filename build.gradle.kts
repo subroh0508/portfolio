@@ -13,8 +13,11 @@ plugins {
 val wasmJsBrowserTestReport by tasks.registering(TestReport::class) {
     destinationDirectory.set(layout.buildDirectory.file("reports/wasmJsBrowserTest").get().asFile)
     subprojects.forEach {
-        val wasmJsBrowserTest by it.tasks.existing(KotlinJsTest::class)
-        testResults.from(wasmJsBrowserTest.get().binaryResultsDirectory)
+        val wasmJsBrowserTest: KotlinJsTest = it.tasks
+            .findByName("wasmJsBrowserTest") as? KotlinJsTest
+            ?: return@forEach
+
+        testResults.from(wasmJsBrowserTest.binaryResultsDirectory)
     }
 }
 
