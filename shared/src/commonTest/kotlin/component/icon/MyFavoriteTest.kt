@@ -2,8 +2,8 @@ package component.icon
 
 import androidx.compose.ui.test.*
 import org.jetbrains.compose.resources.imageResource
-import portfolio.web.generated.resources.Res
-import portfolio.web.generated.resources.kotlin
+import portfolio.shared.generated.resources.Res
+import portfolio.shared.generated.resources.kotlin
 import kotlin.test.Test
 
 private const val CONTENT_DESCRIPTION = "test"

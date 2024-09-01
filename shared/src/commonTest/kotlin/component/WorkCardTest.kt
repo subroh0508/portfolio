@@ -12,8 +12,8 @@ import assertion.assertsEqualsHref
 import component.work.Time
 import mock.mockWindowOpen
 import org.jetbrains.compose.resources.imageResource
-import portfolio.web.generated.resources.Res
-import portfolio.web.generated.resources.kotlinfest2022
+import portfolio.shared.generated.resources.Res
+import portfolio.shared.generated.resources.kotlinfest2022
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
