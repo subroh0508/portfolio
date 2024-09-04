@@ -93,14 +93,12 @@ internal val KotlinFest2024 = Work(
             Icons.Default.Description,
             "Kotlin Fest 2024 Slide",
         ),
-        /*
         Link(
-            "https://youtu.be/9KywTQJej1Q",
+            "https://youtu.be/hmyEGCWk8r4",
             Res.string.movie,
             Icons.Default.Movie,
             "Kotlin Fest 2024 YouTube",
         ),
-        */
     ),
     Time.Event(2024),
     Res.drawable.kotlinfest2024,
