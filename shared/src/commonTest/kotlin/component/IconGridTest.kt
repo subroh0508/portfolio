@@ -58,13 +58,14 @@ class IconGridTest {
     @Composable
     private fun IconGrid() = IconGrid(
         MyFavouriteImageSize,
-        Res.drawable.kotlin to DescriptionKotlin,
-        Res.drawable.kotlin to DescriptionKotlin,
-        Res.drawable.kotlin to DescriptionKotlin,
-    ) { drawable, string ->
+        Triple(Res.drawable.kotlin, DescriptionKotlin) {},
+        Triple(Res.drawable.kotlin, DescriptionKotlin) {},
+        Triple(Res.drawable.kotlin, DescriptionKotlin) {},
+    ) { drawable, string, onClick ->
         MyFavourite(
             imageResource(drawable),
             string,
+            onClick = onClick,
             withCircle = false,
         )
     }

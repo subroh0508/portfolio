@@ -11,26 +11,33 @@ import component.Footer
 import component.IconGrid
 import component.icon.*
 import component.icon.MyFavourite
+import config.*
 import org.jetbrains.compose.resources.imageResource
 import org.jetbrains.compose.resources.stringResource
 import portfolio.shared.generated.resources.*
+import theme.scheme.*
 
 @Composable
 internal fun MyFavoritesSection(
     visible: Boolean,
+    appConfigState: AppConfigState,
 ) = AnimatedSection(
     visible,
     modifier = Modifier.fillMaxHeight()
         .padding(32.dp),
 ) {
-    MyDearestGrid()
+    MyDearestGrid(appConfigState)
     Spacer(Modifier.size(24.dp))
-    LoveGrid()
+    LoveGrid(appConfigState)
     Footer()
 }
 
 @Composable
-private fun MyDearestGrid() {
+private fun MyDearestGrid(
+    appConfigState: AppConfigState,
+) {
+    val isLight = appConfigState.theme.schema.isLight()
+
     Text(
         stringResource(Res.string.label_my_dearest),
         style = MaterialTheme.typography.titleLarge,
@@ -38,24 +45,29 @@ private fun MyDearestGrid() {
 
     IconGrid(
         MyFavouriteImageSize,
-        Res.drawable.kotlin to DescriptionKotlin,
-        Res.drawable.mitsumine to DescriptionMitsumine,
-        Res.drawable.higuchi to DescriptionHiguchi,
-        Res.drawable.haruki to DescriptionHaruki,
-        Res.drawable.kanade to DescriptionKanade,
-        Res.drawable.mizuki to DescriptionMizuki,
-        Res.drawable.temari to DescriptionTemari,
-    ) { drawable, string ->
+        Triple(Res.drawable.kotlin, DescriptionKotlin) { appConfigState.change(isLight, KotlinThemes) },
+        Triple(Res.drawable.mitsumine, DescriptionMitsumine) { appConfigState.change(isLight, YuikaThemes) },
+        Triple(Res.drawable.higuchi, DescriptionHiguchi) { appConfigState.change(isLight, MadokaThemes) },
+        Triple(Res.drawable.haruki, DescriptionHaruki) { appConfigState.change(isLight, HarukiThemes) },
+        Triple(Res.drawable.kanade, DescriptionKanade) { appConfigState.change(isLight, KanadeThemes) },
+        Triple(Res.drawable.mizuki, DescriptionMizuki) { appConfigState.change(isLight, MizukiThemes) },
+        Triple(Res.drawable.temari, DescriptionTemari) { appConfigState.change(isLight, TemariThemes) },
+    ) { drawable, string, onClick ->
         MyFavourite(
             imageResource(drawable),
             string,
+            onClick = onClick,
             withCircle = drawable != Res.drawable.kotlin,
         )
     }
 }
 
 @Composable
-private fun LoveGrid() {
+private fun LoveGrid(
+    appConfigState: AppConfigState,
+) {
+    val isLight = appConfigState.theme.schema.isLight()
+
     Text(
         stringResource(Res.string.label_love),
         style = MaterialTheme.typography.titleLarge,
@@ -63,17 +75,27 @@ private fun LoveGrid() {
 
     IconGrid(
         MyFavouriteImageSize,
-        Res.drawable.ruby_on_rails to DescriptionRubyOnRails,
-        Res.drawable.react to DescriptionReact,
-        Res.drawable.android to DescriptionAndroid,
-        Res.drawable.sayaka to DescriptionSayaka,
-        Res.drawable.you to DescriptionYou,
-        Res.drawable.yu to DescriptionYu,
-    ) { drawable, string ->
+        Triple(Res.drawable.ruby_on_rails, DescriptionRubyOnRails) { appConfigState.change(isLight, RailsThemes) },
+        Triple(Res.drawable.react, DescriptionReact) { appConfigState.change(isLight, ReactThemes) },
+        Triple(Res.drawable.android, DescriptionAndroid) { appConfigState.change(isLight, AndroidThemes) },
+        Triple(Res.drawable.sayaka, DescriptionSayaka) { appConfigState.change(isLight, SayakaThemes) },
+        Triple(Res.drawable.you, DescriptionYou) { appConfigState.change(isLight, YouThemes) },
+        Triple(Res.drawable.yu, DescriptionYu) { appConfigState.change(isLight, YuThemes) },
+    ) { drawable, string, onClick ->
         MyFavourite(
             imageResource(drawable),
             string,
+            onClick = onClick,
             withCircle = drawable != Res.drawable.android,
         )
     }
+}
+
+private fun AppConfigState.change(
+    isLight: Boolean,
+    themes: Pair<ColorTheme, ColorTheme>
+) {
+    val (light, dark) = themes
+
+    theme = if (isLight) light else dark
 }
