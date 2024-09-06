@@ -12,8 +12,8 @@ import org.jetbrains.compose.resources.DrawableResource
 @Composable
 internal fun IconGrid(
     size: Dp,
-    vararg resource: Pair<DrawableResource, String>,
-    content: @Composable (DrawableResource, String) -> Unit,
+    vararg resource: Triple<DrawableResource, String, () -> Unit>,
+    content: @Composable (DrawableResource, String, () -> Unit) -> Unit,
 ) = BoxWithConstraints {
     val chunkedSize = (maxWidth / (size + 8.dp)).toInt()
 
@@ -23,7 +23,11 @@ internal fun IconGrid(
                 modifier = Modifier.padding(vertical = 8.dp)
                     .testTag(PortfolioTag.ICON_GRID_ROW),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
-            ) { row.forEach { (drawable, string) -> content(drawable, string) } }
+            ) {
+                row.forEach { (drawable, string, onClick) ->
+                    content(drawable, string, onClick)
+                }
+            }
         }
     }
 }

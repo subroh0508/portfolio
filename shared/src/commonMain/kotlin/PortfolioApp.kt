@@ -47,7 +47,7 @@ fun PortfolioApp(
             ) {
                 item { HandleNameSection() }
                 item { AccountsSection() }
-                item { PortfolioContent(current) }
+                item { PortfolioContent(current, config) }
             }
         }
     }
@@ -56,6 +56,7 @@ fun PortfolioApp(
 @Composable
 private fun PortfolioContent(
     current: ContentTab,
+    appConfigState: AppConfigState,
 ) = TabLayout(
     current,
     tabs = { currentTab ->
@@ -71,7 +72,7 @@ private fun PortfolioContent(
     },
     content = { tab ->
         BiographySection(tab == ContentTab.Biography)
-        MyFavoritesSection(tab == ContentTab.MyFavorites)
+        MyFavoritesSection(tab == ContentTab.MyFavorites, appConfigState)
         WorksSection(tab == ContentTab.Works)
     },
 )
