@@ -43,7 +43,7 @@ class TopAppBarTest {
         onNodeWithTag(PortfolioTag.TOP_APP_BAR_COLOR_THEME_BUTTON)
             .performClick()
 
-        assertEquals(ColorTheme.YuikaDark, appConfigState.theme)
+        assertEquals(ColorTheme.KotlinDark, appConfigState.theme)
 
         onNodeWithTag(PortfolioTag.TOP_APP_BAR_COLOR_THEME_BUTTON)
             .performClick()
