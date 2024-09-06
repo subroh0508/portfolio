@@ -61,6 +61,7 @@ internal fun TopAppBar(
     )
 }
 
+@Suppress("CyclomaticComplexMethod")
 private fun AppConfigState.switchTheme() {
     theme = when (theme) {
         ColorTheme.AndroidLight -> ColorTheme.AndroidDark

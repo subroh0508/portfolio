@@ -1,7 +1,6 @@
 package section
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -91,8 +90,6 @@ private fun LoveGrid(
         )
     }
 }
-
-
 
 private fun AppConfigState.change(
     isLight: Boolean,
