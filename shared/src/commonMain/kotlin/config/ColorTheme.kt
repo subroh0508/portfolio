@@ -5,8 +5,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.luminance
 
 enum class ColorTheme(val schema: ColorScheme) {
-    Light(theme.Light),
-    Dark(theme.Dark),
+    YuikaLight(theme.scheme.YuikaLight),
+    YuikaDark(theme.scheme.YuikaDark),
 }
 
 @Suppress("MagicNumber")

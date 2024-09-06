@@ -3,7 +3,7 @@ package config
 import androidx.compose.runtime.*
 
 data class AppConfig(
-    val theme: ColorTheme = ColorTheme.Light,
+    val theme: ColorTheme = ColorTheme.YuikaLight,
     val lang: Lang = Lang.JA,
 )
 
@@ -11,7 +11,7 @@ class AppConfigState private constructor(
     state: MutableState<AppConfig>,
 ) : MutableState<AppConfig> by state {
     constructor(
-        theme: ColorTheme = ColorTheme.Light,
+        theme: ColorTheme = ColorTheme.YuikaLight,
         lang: Lang = Lang.JA,
     ) : this(mutableStateOf(AppConfig(theme, lang)))
 
@@ -33,7 +33,7 @@ fun rememberAppConfigState(
     useDarkTheme: Boolean,
 ) = remember(useDarkTheme) {
     AppConfigState(
-        theme = if (useDarkTheme) ColorTheme.Dark else ColorTheme.Light,
+        theme = if (useDarkTheme) ColorTheme.YuikaDark else ColorTheme.YuikaLight,
         lang = Lang.JA,
     )
 }

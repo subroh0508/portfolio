@@ -47,8 +47,8 @@ internal fun TopAppBar(
             IconButton(
                 onClick = {
                     config.theme = when (config.theme) {
-                        ColorTheme.Light -> ColorTheme.Dark
-                        ColorTheme.Dark -> ColorTheme.Light
+                        ColorTheme.YuikaLight -> ColorTheme.YuikaDark
+                        ColorTheme.YuikaDark -> ColorTheme.YuikaLight
                     }
                 },
                 modifier = Modifier.pointerHoverIcon(PointerIcon.Hand)
@@ -56,8 +56,8 @@ internal fun TopAppBar(
             ) {
                 Icon(
                     when (config.theme) {
-                        ColorTheme.Light -> Icons.Default.LightMode
-                        ColorTheme.Dark -> Icons.Default.DarkMode
+                        ColorTheme.YuikaLight -> Icons.Default.LightMode
+                        ColorTheme.YuikaDark -> Icons.Default.DarkMode
                     },
                     contentDescription = "Change Theme",
                 )
