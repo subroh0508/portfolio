@@ -20,7 +20,7 @@ class TopAppBarTest {
     @Test
     fun shouldChangeAppConfig() = runComposeUiTest {
         val appConfigState = AppConfigState(
-            theme = ColorTheme.YuikaLight,
+            theme = ColorTheme.KotlinLight,
             lang = Lang.JA,
         )
 
@@ -48,6 +48,6 @@ class TopAppBarTest {
         onNodeWithTag(PortfolioTag.TOP_APP_BAR_COLOR_THEME_BUTTON)
             .performClick()
 
-        assertEquals(ColorTheme.YuikaLight, appConfigState.theme)
+        assertEquals(ColorTheme.KotlinLight, appConfigState.theme)
     }
 }
