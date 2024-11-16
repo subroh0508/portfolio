@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.0.20"
+kotlin = "2.0.21"
 compose = "1.6.11"
 buildconfig = "5.5.0"
 detekt = "1.23.7"
