@@ -6,7 +6,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import component.accountchip.*
-import component.accountchip.Bluesky
 import component.accountchip.Facebook
 import component.accountchip.GitHub
 import component.accountchip.Lapras
@@ -22,7 +21,7 @@ internal fun AccountsSection() = Column(
 ) {
     ResponsiveRow(
         { X() },
-        { Bluesky() },
+        { Mixi2() },
         { Facebook() },
     )
 

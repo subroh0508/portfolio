@@ -21,14 +21,14 @@ internal fun X() = AccountLink(
 )
 
 @Composable
-internal fun Bluesky() = AccountLink(
+internal fun Mixi2() = AccountLink(
     icon = {
         ServiceIcon(
-            painterResource(Res.drawable.bluesky),
+            painterResource(Res.drawable.mixi2),
         )
     },
-    stringResource(Res.string.bluesky),
-    stringResource(Res.string.href_bluesky),
+    stringResource(Res.string.mixi2),
+    stringResource(Res.string.href_mixi2),
 )
 
 @Composable
