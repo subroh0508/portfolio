@@ -14,6 +14,9 @@ enum class ColorTheme(val schema: ColorScheme) {
     KanadeLight(theme.scheme.KanadeLight),
     KanadeDark(theme.scheme.KanadeDark),
 
+    KanonLight(theme.scheme.KanonLight),
+    KanonDark(theme.scheme.KanonDark),
+
     KotlinLight(theme.scheme.KotlinLight),
     KotlinDark(theme.scheme.KotlinDark),
 
@@ -48,6 +51,7 @@ enum class ColorTheme(val schema: ColorScheme) {
 val AndroidThemes = ColorTheme.AndroidLight to ColorTheme.AndroidDark
 val HarukiThemes = ColorTheme.HarukiLight to ColorTheme.HarukiDark
 val KanadeThemes = ColorTheme.KanadeLight to ColorTheme.KanadeDark
+val KanonThemes = ColorTheme.KanonLight to ColorTheme.KanonDark
 val KotlinThemes = ColorTheme.KotlinLight to ColorTheme.KotlinDark
 val MadokaThemes = ColorTheme.MadokaLight to ColorTheme.MadokaDark
 val MizukiThemes = ColorTheme.MizukiLight to ColorTheme.MizukiDark

@@ -70,6 +70,8 @@ private fun AppConfigState.switchTheme() {
         ColorTheme.HarukiDark -> ColorTheme.HarukiLight
         ColorTheme.KanadeLight -> ColorTheme.KanadeDark
         ColorTheme.KanadeDark -> ColorTheme.KanadeLight
+        ColorTheme.KanonLight -> ColorTheme.KanonDark
+        ColorTheme.KanonDark -> ColorTheme.KanonLight
         ColorTheme.KotlinLight -> ColorTheme.KotlinDark
         ColorTheme.KotlinDark -> ColorTheme.KotlinLight
         ColorTheme.MadokaLight -> ColorTheme.MadokaDark

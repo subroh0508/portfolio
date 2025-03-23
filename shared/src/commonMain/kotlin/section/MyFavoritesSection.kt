@@ -79,6 +79,7 @@ private fun LoveGrid(
         Triple(Res.drawable.react, DescriptionReact) { appConfigState.change(isLight, ReactThemes) },
         Triple(Res.drawable.android, DescriptionAndroid) { appConfigState.change(isLight, AndroidThemes) },
         Triple(Res.drawable.sayaka, DescriptionSayaka) { appConfigState.change(isLight, SayakaThemes) },
+        Triple(Res.drawable.kanon, DescriptionKanon) { appConfigState.change(isLight, KanonThemes) },
         Triple(Res.drawable.you, DescriptionYou) { appConfigState.change(isLight, YouThemes) },
         Triple(Res.drawable.yu, DescriptionYu) { appConfigState.change(isLight, YuThemes) },
     ) { drawable, string, onClick ->
