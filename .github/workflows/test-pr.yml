@@ -36,7 +36,7 @@ jobs:
           distribution: zulu
           java-version: 17
       - run: ./gradlew detektAll
-      - uses: github/codeql-action/upload-sarif@v3
+      - uses: github/codeql-action/upload-sarif@v4
         if: success() || failure()
         with:
           sarif_file: lint-reports/kotlin/detekt.sarif
