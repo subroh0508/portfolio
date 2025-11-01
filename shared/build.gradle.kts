@@ -15,7 +15,6 @@ plugins {
 kotlin {
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs { browser() }
-    js { browser() }
 
     applyDefaultHierarchyTemplate()
     sourceSets {
@@ -41,18 +40,6 @@ kotlin {
                 @OptIn(ExperimentalComposeLibrary::class)
                 implementation(compose.uiTest)
             }
-        }
-
-        val jsWasmMain by creating {
-            dependsOn(commonMain.get())
-        }
-
-        jsMain {
-            dependsOn(jsWasmMain)
-        }
-
-        wasmJsMain {
-            dependsOn(jsWasmMain)
         }
     }
 }

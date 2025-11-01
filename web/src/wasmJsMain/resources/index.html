@@ -29,13 +29,22 @@
     ga('create', 'UA-140254668-1', 'auto');
     ga('send', 'pageview');
   </script>
-  <script src="skiko.js"> </script>
   <!-- End Google Analytics -->
+  <script type="application/javascript" src="portfoliowebapp.js"></script>
+  <style>
+    body {
+      width: 100%;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+    #PortfolioCanvas {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 <body>
-  <div>
-    <canvas id="PortfolioCanvas"></canvas>
-  </div>
-  <script type="application/javascript" src="portfoliowebapp.js"></script>
+  <div id="PortfolioCanvas"></div>
 </body>
 </html>

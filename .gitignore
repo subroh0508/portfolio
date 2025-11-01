@@ -7,4 +7,9 @@ build
 
 .firebase
 
+*yarn.lock
+
 public/
+lint-reports/
+
+local.properties

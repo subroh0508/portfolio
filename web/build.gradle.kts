@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     alias(libs.plugins.kotlin.mpp)
@@ -8,7 +9,8 @@ plugins {
 }
 
 kotlin {
-    js {
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
         browser {
             commonWebpackConfig {
                 outputFileName = "portfoliowebapp.js"
@@ -22,7 +24,7 @@ kotlin {
     }
 
     sourceSets {
-        jsMain {
+        wasmJsMain {
             dependencies {
                 implementation(project(":shared"))
                 implementation(compose.runtime)
@@ -47,6 +49,6 @@ val copyDistributions by tasks.registering {
     }
 }
 
-val jsBrowserDistribution by tasks.existing {
+val wasmJsBrowserDistribution by tasks.existing {
     finalizedBy(copyDistributions)
 }
