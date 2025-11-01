@@ -103,7 +103,7 @@ internal fun LinkButton(
     icon: ImageVector,
     contentDescription: String,
 ) = TooltipBox(
-    positionProvider = TooltipDefaults.rememberPlainTooltipPositionProvider(),
+    positionProvider = TooltipDefaults.rememberTooltipPositionProvider(),
     state = rememberTooltipState(),
     tooltip = { PlainTooltip { Text(label) } },
 ) {

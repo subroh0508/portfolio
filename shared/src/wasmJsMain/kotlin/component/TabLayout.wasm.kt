@@ -3,6 +3,7 @@ package component
 import androidx.compose.runtime.MutableState
 import kotlinx.browser.window
 
+@OptIn(ExperimentalWasmJsInterop::class)
 internal actual fun MutableState<ContentTab>.handleTabChange(
     next: ContentTab,
 ) {
