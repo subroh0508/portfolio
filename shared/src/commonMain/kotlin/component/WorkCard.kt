@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Tag
 import androidx.compose.material3.*
+import androidx.compose.material3.TooltipAnchorPosition
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -103,7 +104,9 @@ internal fun LinkButton(
     icon: ImageVector,
     contentDescription: String,
 ) = TooltipBox(
-    positionProvider = TooltipDefaults.rememberTooltipPositionProvider(),
+    positionProvider = TooltipDefaults.rememberTooltipPositionProvider(
+        TooltipAnchorPosition.Above,
+    ),
     state = rememberTooltipState(),
     tooltip = { PlainTooltip { Text(label) } },
 ) {
