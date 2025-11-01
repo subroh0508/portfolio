@@ -53,7 +53,7 @@ jobs:
       - run: ./gradlew wasmJsBrowserTest --stacktrace
       - if: success() || failure()
         run: ./gradlew wasmJsBrowserTestReport --stacktrace
-      - uses: mikepenz/action-junit-report@v5
+      - uses: mikepenz/action-junit-report@v6
         if: success() || failure()
         with:
           report_paths: '**/build/test-results/wasmJsBrowserTest/TEST-*.xml'
