@@ -85,7 +85,7 @@ internal val DevelopersBoost2025 = Work(
 internal val EngineerAnime2025 = Work(
     Res.string.work_engineeranime_2025_headline,
     Res.string.work_engineeranime_2025_description,
-    WorkType.StudyMeeting,
+    WorkType.Conference,
     listOf(
         Link(
             "https://speakerdeck.com/subroh0508/mustwowillnibian-eruji-shu-aidoruyu-tian-harukiga-subeki-nobi-wochao-erumade",
