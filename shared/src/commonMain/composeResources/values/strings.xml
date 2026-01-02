@@ -60,6 +60,12 @@
     <string name="work_kotlinfest_2024_headline">Kotlin Fest 2024</string>
     <string name="work_kotlinfest_2024_description">「あらゆるアプリをCompose Multiplatformで書きたい！ -ネイティブアプリの「あの機能」を私たちはどう作るか-」というタイトルで、Kotlin Fest 2024に登壇しました。</string>
 
+    <string name="work_developersboost_2025_headline">Developers Boost 2025</string>
+    <string name="work_developersboost_2025_description">「技術以外の世界に『越境』しエンジニアとして進化を遂げる 〜Kotlinへの愛とDevHRとしての挑戦を添えて〜」というタイトルで、Developers Boost 2025に登壇しました。</string>
+
+    <string name="work_engineeranime_2025_headline">劇場版 アニメから得た学びを発表会 2025</string>
+    <string name="work_engineeranime_2025_description">「MustをWillに変える技術 〜アイドル・郁田はるきが"すべき"の壁を超えるまで〜」というタイトルで、劇場版 アニメから得た学びを発表会 2025に登壇しました。</string>
+
     <string name="work_colormaster_headline">COLOR M@STER</string>
     <string name="work_colormaster_description">アイドルマスターに登場するキャラクターのイメージカラーに対する、様々な機能を提供するアプリケーションです。現在、「検索」「ペンライト」の2つの機能が実装されています。\n\n実装にはKotlin Multiplatformを利用しています。</string>
 </resources>
