@@ -40,7 +40,7 @@
     <string name="tab_my_favourites">推し</string>
     <string name="tab_works">実績</string>
 
-    <string name="biography">1995年生まれ。東京の離島・伊豆大島出身。メインの技術スタックはKotlin・Android・Rails・React。\n\n東京高専情報工学科を卒業後、2016年4月に株式会社TOKIUMに新卒入社。6年半に渡りAndroid・Webの領域でプレイングマネージャーとして経験を積み、2023年1月からはDevHRとしてエンジニア採用・組織づくりの業務にフルコミットで携わる。\n\nKotlinとアイドルマスターをこよなく愛する。アイマスPとしての時間を積み重ねていたら、現実の仕事もプロデューサー業っぽくなってきた。2023年末の異次元フェスで脳が破壊され、最近はラブライブ！にも手を伸ばしつつある。</string>
+    <string name="biography">1995年生まれ。東京の離島・伊豆大島出身。東京高専情報工学科卒。\n\n2016年4月に株式会社TOKIUMに新卒入社し、6年半に渡りAndroid・Webの領域でプレイングマネージャーとして経験を積む。2023年1月からは開発組織専門の人事（DevHR）として、採用・育成・組織ブランディングの業務に3年携わり、2025年12月から再びエンジニアに戻る。現在は、Webサービスの開発を主に担当している。\n\nKotlinが母国語。ガチガチのアイマスPと新米ラブライバーを兼任。『アイドルマスターシャイニーカラーズ』の三峰結華と『蓮ノ空女学院スクールアイドルクラブ』の村野さやかが人生のロールモデル。</string>
 
     <string name="label_my_dearest">担当アイドル</string>
     <string name="label_love">推し</string>
@@ -60,9 +60,12 @@
     <string name="work_kotlinfest_2024_headline">Kotlin Fest 2024</string>
     <string name="work_kotlinfest_2024_description">「あらゆるアプリをCompose Multiplatformで書きたい！ -ネイティブアプリの「あの機能」を私たちはどう作るか-」というタイトルで、Kotlin Fest 2024に登壇しました。</string>
 
+    <string name="work_developersboost_2025_headline">Developers Boost 2025</string>
+    <string name="work_developersboost_2025_description">「技術以外の世界に『越境』しエンジニアとして進化を遂げる 〜Kotlinへの愛とDevHRとしての挑戦を添えて〜」というタイトルで、Developers Boost 2025に登壇しました。</string>
+
+    <string name="work_engineeranime_2025_headline">劇場版 アニメから得た学びを発表会 2025</string>
+    <string name="work_engineeranime_2025_description">「MustをWillに変える技術 〜アイドル・郁田はるきが"すべき"の壁を超えるまで〜」というタイトルで、劇場版 アニメから得た学びを発表会 2025に登壇しました。</string>
+
     <string name="work_colormaster_headline">COLOR M@STER</string>
     <string name="work_colormaster_description">アイドルマスターに登場するキャラクターのイメージカラーに対する、様々な機能を提供するアプリケーションです。現在、「検索」「ペンライト」の2つの機能が実装されています。\n\n実装にはKotlin Multiplatformを利用しています。</string>
-
-    <string name="work_noctiluca_headline">Noctiluca</string>
-    <string name="work_noctiluca_description">※開発中\n\nマルチプラットフォーム対応のMastodonクライアントアプリです。</string>
 </resources>

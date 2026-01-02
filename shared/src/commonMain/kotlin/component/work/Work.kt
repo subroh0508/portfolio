@@ -44,22 +44,6 @@ internal sealed class Time {
     }
 }
 
-internal val Noctiluca = Work(
-    Res.string.work_noctiluca_headline,
-    Res.string.work_noctiluca_description,
-    WorkType.PersonalProject,
-    listOf(
-        Link(
-            "https://github.com/subroh0508/Noctiluca",
-            Res.string.repository,
-            Icons.Default.Code,
-            "Noctiluca Repository",
-        ),
-    ),
-    Time.UntilNow(2022),
-    Res.drawable.noctiluca,
-)
-
 internal val ColorMaster = Work(
     Res.string.work_colormaster_headline,
     Res.string.work_colormaster_description,
@@ -80,6 +64,38 @@ internal val ColorMaster = Work(
     ),
     Time.UntilNow(2020),
     Res.drawable.colormaster,
+)
+
+internal val DevelopersBoost2025 = Work(
+    Res.string.work_developersboost_2025_headline,
+    Res.string.work_developersboost_2025_description,
+    WorkType.Conference,
+    listOf(
+        Link(
+            "https://speakerdeck.com/subroh0508/ji-shu-yi-wai-noshi-jie-ni-yue-jing-sienziniatositejin-hua-wosui-geru-kotlinhenoai-todevhrtositenotiao-zhan-wotian-ete",
+            Res.string.slide,
+            Icons.Default.Description,
+            "Developers Boost 2025 Slide",
+        ),
+    ),
+    Time.Event(2025),
+    Res.drawable.developersboost2025,
+)
+
+internal val EngineerAnime2025 = Work(
+    Res.string.work_engineeranime_2025_headline,
+    Res.string.work_engineeranime_2025_description,
+    WorkType.Conference,
+    listOf(
+        Link(
+            "https://speakerdeck.com/subroh0508/mustwowillnibian-eruji-shu-aidoruyu-tian-harukiga-subeki-nobi-wochao-erumade",
+            Res.string.slide,
+            Icons.Default.Description,
+            "Engineer Anime 2025 Slide",
+        ),
+    ),
+    Time.Event(2025),
+    Res.drawable.engineeranime2025,
 )
 
 internal val KotlinFest2024 = Work(
@@ -180,8 +196,9 @@ internal val KotlinMaterialUi = Work(
 )
 
 internal val Works = listOf(
-    Noctiluca,
     ColorMaster,
+    DevelopersBoost2025,
+    EngineerAnime2025,
     KotlinFest2024,
     KotlinFest2022,
     KotlinFest2019,

@@ -9,7 +9,7 @@ import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.runComposeUiTest
 import androidx.compose.ui.unit.dp
-import component.work.Noctiluca
+import component.work.ColorMaster
 import kotlin.test.Test
 
 @OptIn(ExperimentalTestApi::class)
@@ -41,6 +41,6 @@ class CardGridTest {
     @Composable
     private fun WorkGrid() = CardGrid(
         WorkCardMinWidth,
-        listOf(Noctiluca, Noctiluca),
+        listOf(ColorMaster, ColorMaster),
     ) { work -> WorkCard(work) }
 }
