@@ -62,7 +62,4 @@
 
     <string name="work_colormaster_headline">COLOR M@STER</string>
     <string name="work_colormaster_description">This application provides various functions for the image colors of characters in THE iDOLM@STER. Currently, two functions, "Search" and "Penlight", are implemented. \n\nThis Application is developed by Kotlin Multiplatform.</string>
-
-    <string name="work_noctiluca_headline">Noctiluca</string>
-    <string name="work_noctiluca_description">※Under Development\n\nThis application is a multi-platform client of Mastodon.</string>
 </resources>

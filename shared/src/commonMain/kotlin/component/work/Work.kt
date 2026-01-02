@@ -44,22 +44,6 @@ internal sealed class Time {
     }
 }
 
-internal val Noctiluca = Work(
-    Res.string.work_noctiluca_headline,
-    Res.string.work_noctiluca_description,
-    WorkType.PersonalProject,
-    listOf(
-        Link(
-            "https://github.com/subroh0508/Noctiluca",
-            Res.string.repository,
-            Icons.Default.Code,
-            "Noctiluca Repository",
-        ),
-    ),
-    Time.UntilNow(2022),
-    Res.drawable.noctiluca,
-)
-
 internal val ColorMaster = Work(
     Res.string.work_colormaster_headline,
     Res.string.work_colormaster_description,
@@ -180,7 +164,6 @@ internal val KotlinMaterialUi = Work(
 )
 
 internal val Works = listOf(
-    Noctiluca,
     ColorMaster,
     KotlinFest2024,
     KotlinFest2022,
