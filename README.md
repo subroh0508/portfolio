@@ -8,7 +8,7 @@ Subroh Nishikori's Portfolio developed by Compose Multiplatform for Kotlin/Wasm 
 ## Debug on Local
 
 ```shell
-./gradlew :web:jsBrowserRun --continuous
+./gradlew :web:wasmJsBrowserDevelopmentRun --continuous
 ```
 
 ## Run unit test
