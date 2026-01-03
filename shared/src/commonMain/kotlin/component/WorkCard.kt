@@ -1,7 +1,6 @@
 package component
 
 import PortfolioTag
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Tag
@@ -13,12 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import component.work.Time
 import component.work.Work
-import org.jetbrains.compose.resources.imageResource
 import org.jetbrains.compose.resources.stringResource
 import utils.openWindow
 
@@ -45,14 +42,7 @@ internal fun WorkCard(
             )
         }
     },
-    thumbnail = {
-        Image(
-            imageResource(work.thumbnail),
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier.fillMaxSize(),
-        )
-    },
+    thumbnail = work.thumbnail,
     modifier = modifier,
 )
 

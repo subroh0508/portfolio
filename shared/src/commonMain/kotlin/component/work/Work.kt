@@ -1,13 +1,19 @@
 package component.work
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.OpenInNew
 import androidx.compose.material.icons.filled.Code
 import androidx.compose.material.icons.filled.Description
 import androidx.compose.material.icons.filled.Movie
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.StringResource
+import org.jetbrains.compose.resources.imageResource
 import portfolio.shared.generated.resources.*
 
 internal data class Work(
@@ -16,8 +22,54 @@ internal data class Work(
     val type: WorkType,
     val links: List<Link>,
     val time: Time,
-    val thumbnail: DrawableResource,
-)
+    val thumbnail: @Composable () -> Unit,
+) {
+    companion object {
+        operator fun invoke(
+            headline: StringResource,
+            description: StringResource,
+            type: WorkType,
+            links: List<Link>,
+            time: Time,
+            thumbnail: DrawableResource,
+        ) = Work(
+            headline,
+            description,
+            type,
+            links,
+            time,
+            thumbnail = {
+                Image(
+                    imageResource(thumbnail),
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.fillMaxSize(),
+                )
+            },
+        )
+
+        operator fun invoke(
+            headline: StringResource,
+            description: StringResource,
+            type: WorkType,
+            links: List<Link>,
+            time: Time,
+            slide: SpeakerDeckLink,
+        ) = Work(
+            headline,
+            description,
+            type,
+            links,
+            time,
+            thumbnail = {
+                SpeakerDeck(
+                    slide,
+                    modifier = Modifier.fillMaxSize(),
+                )
+            },
+        )
+    }
+}
 
 internal enum class WorkType(val label: StringResource) {
     Conference(Res.string.conference),
@@ -86,16 +138,12 @@ internal val EngineerAnime2025 = Work(
     Res.string.work_engineeranime_2025_headline,
     Res.string.work_engineeranime_2025_description,
     WorkType.Conference,
-    listOf(
-        Link(
-            "https://speakerdeck.com/subroh0508/mustwowillnibian-eruji-shu-aidoruyu-tian-harukiga-subeki-nobi-wochao-erumade",
-            Res.string.slide,
-            Icons.Default.Description,
-            "Engineer Anime 2025 Slide",
-        ),
-    ),
+    listOf(),
     Time.Event(2025),
-    Res.drawable.engineeranime2025,
+    SpeakerDeckLink(
+        src = "https://speakerdeck.com/player/60ea30fcfad241239cba1b136736fc20",
+        title = "MustをWillに変える技術 〜アイドル・郁田はるきが&quot;すべき&quot;の壁を超えるまで〜",
+    ),
 )
 
 internal val KotlinFest2024 = Work(

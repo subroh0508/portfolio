@@ -1,8 +1,10 @@
 package component.work
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.WebElementView
 import kotlinx.browser.document
 import org.w3c.dom.HTMLIFrameElement
@@ -10,16 +12,22 @@ import org.w3c.dom.HTMLIFrameElement
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 internal fun SpeakerDeck(
-    src: String,
-    title: String,
+    link: SpeakerDeckLink,
+    modifier: Modifier = Modifier,
 ) {
-    Box {
+    Box(modifier = modifier) {
         WebElementView(
-            factory = { iframe(src, title) },
-            update = { iframe -> iframe.src = iframe.src }
+            factory = { iframe(link.src, link.title) },
+            modifier = Modifier.fillMaxSize(),
+            update = { iframe -> iframe.src = iframe.src },
         )
     }
 }
+
+internal data class SpeakerDeckLink(
+    val src: String,
+    val title: String,
+)
 
 private fun iframe(
     src: String,
