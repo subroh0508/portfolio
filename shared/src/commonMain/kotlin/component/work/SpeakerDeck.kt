@@ -43,7 +43,7 @@ private fun iframe(
         className = "speakerdeck-iframe"
         allowFullscreen = true
         setAttribute("data-ratio", "1.7777777777777777")
-        with (style) {
+        with(style) {
             border = "0px"
             background = "padding-box padding-box rgba(0, 0, 0, 0.1)"
             margin = "0px"
