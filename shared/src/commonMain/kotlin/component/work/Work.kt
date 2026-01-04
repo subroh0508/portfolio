@@ -1,13 +1,19 @@
 package component.work
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.OpenInNew
 import androidx.compose.material.icons.filled.Code
 import androidx.compose.material.icons.filled.Description
 import androidx.compose.material.icons.filled.Movie
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.StringResource
+import org.jetbrains.compose.resources.imageResource
 import portfolio.shared.generated.resources.*
 
 internal data class Work(
@@ -16,8 +22,54 @@ internal data class Work(
     val type: WorkType,
     val links: List<Link>,
     val time: Time,
-    val thumbnail: DrawableResource,
-)
+    val thumbnail: @Composable () -> Unit,
+) {
+    companion object {
+        operator fun invoke(
+            headline: StringResource,
+            description: StringResource,
+            type: WorkType,
+            links: List<Link>,
+            time: Time,
+            thumbnail: DrawableResource,
+        ) = Work(
+            headline,
+            description,
+            type,
+            links,
+            time,
+            thumbnail = {
+                Image(
+                    imageResource(thumbnail),
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.fillMaxSize(),
+                )
+            },
+        )
+
+        operator fun invoke(
+            headline: StringResource,
+            description: StringResource,
+            type: WorkType,
+            links: List<Link>,
+            time: Time,
+            slide: SpeakerDeckLink,
+        ) = Work(
+            headline,
+            description,
+            type,
+            links,
+            time,
+            thumbnail = {
+                SpeakerDeck(
+                    slide,
+                    modifier = Modifier.fillMaxSize(),
+                )
+            },
+        )
+    }
+}
 
 internal enum class WorkType(val label: StringResource) {
     Conference(Res.string.conference),
@@ -79,7 +131,10 @@ internal val DevelopersBoost2025 = Work(
         ),
     ),
     Time.Event(2025),
-    Res.drawable.developersboost2025,
+    SpeakerDeckLink(
+        src = "https://speakerdeck.com/player/5de4947ef6a34dd299b99abe62d65bc7",
+        title = "技術以外の世界に『越境』しエンジニアとして進化を遂げる 〜Kotlinへの愛とDevHRとしての挑戦を添えて〜",
+    ),
 )
 
 internal val EngineerAnime2025 = Work(
@@ -95,7 +150,10 @@ internal val EngineerAnime2025 = Work(
         ),
     ),
     Time.Event(2025),
-    Res.drawable.engineeranime2025,
+    SpeakerDeckLink(
+        src = "https://speakerdeck.com/player/60ea30fcfad241239cba1b136736fc20",
+        title = "MustをWillに変える技術 〜アイドル・郁田はるきが&quot;すべき&quot;の壁を超えるまで〜",
+    ),
 )
 
 internal val KotlinFest2024 = Work(
@@ -117,7 +175,10 @@ internal val KotlinFest2024 = Work(
         ),
     ),
     Time.Event(2024),
-    Res.drawable.kotlinfest2024,
+    SpeakerDeckLink(
+        src = "https://speakerdeck.com/player/a537a3def3ae4c23a5bfe8d763b089b0",
+        title = "あらゆるアプリをCompose Multiplatformで書きたい！ -ネイティブアプリの「あの機能」を私たちはどう作るか-",
+    ),
 )
 
 internal val KotlinFest2022 = Work(
@@ -139,7 +200,10 @@ internal val KotlinFest2022 = Work(
         ),
     ),
     Time.Event(2022),
-    Res.drawable.kotlinfest2022,
+    SpeakerDeckLink(
+        src = "https://speakerdeck.com/player/f023b131957a4c409d633498272cc6bf",
+        title = "フロントエンドもJetpack Composeで書きたい！ -Compose for WebはモダンWebアプリケーションの夢を見るか？-",
+    ),
 )
 
 internal val KotlinFest2019 = Work(
@@ -161,7 +225,10 @@ internal val KotlinFest2019 = Work(
         ),
     ),
     Time.Event(2019),
-    Res.drawable.kotlinfest2019,
+    SpeakerDeckLink(
+        src = "https://speakerdeck.com/player/cc46277d17c240b5955026ab25cbc083",
+        title = "フロントエンドもKotlinで書きたい！ -WebページをKotlin/JSで作った軌跡-",
+    ),
 )
 
 internal val DroidKaigi2019 = Work(
@@ -183,7 +250,10 @@ internal val DroidKaigi2019 = Work(
         ),
     ),
     Time.Event(2019),
-    Res.drawable.droidkaigi2019,
+    SpeakerDeckLink(
+        src = "https://speakerdeck.com/player/52a0289ebfe649f09524739bb4f7ddd5",
+        title = "Spek2+MockK+JaCoCoでイケてる Unit Test環境を手に入れろ！",
+    ),
 )
 
 internal val KotlinMaterialUi = Work(
