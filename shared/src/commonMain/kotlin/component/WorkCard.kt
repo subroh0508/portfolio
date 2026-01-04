@@ -56,10 +56,7 @@ internal fun WorkCard(
     thumbnail: @Composable () -> Unit,
     modifier: Modifier = Modifier,
 ) = ElevatedCard(modifier) {
-    WorkCardThumbnail(
-        type,
-        thumbnail,
-    )
+    WorkCardThumbnail(thumbnail)
 
     Column(
         modifier = Modifier.padding(16.dp),
@@ -80,11 +77,22 @@ internal fun WorkCard(
         Spacer(Modifier.height(16.dp))
 
         Row(
-            modifier = Modifier.align(Alignment.End),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-        ) { linkButtons() }
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            WorkTypeTag(type)
+            Spacer(Modifier.weight(1f))
+            LinkButtons(linkButtons)
+        }
     }
 }
+
+@Composable
+private fun LinkButtons(
+    content: @Composable () -> Unit,
+) = Row(
+    horizontalArrangement = Arrangement.spacedBy(8.dp),
+) { content() }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -113,27 +121,11 @@ internal fun LinkButton(
 
 @Composable
 private fun WorkCardThumbnail(
-    type: String,
     thumbnail: @Composable () -> Unit,
 ) = Box(
     modifier = Modifier.fillMaxWidth()
         .height(WorkCardThumbnailHeight),
-) {
-    thumbnail()
-
-    NoRippleAssistChip(
-        onClick = { },
-        colors = AssistChipDefaults.assistChipColors(
-            containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.8F),
-        ),
-        border = null,
-        leadingIcon = { Icon(Icons.Default.Tag, contentDescription = null) },
-        label = { Text(type) },
-        modifier = Modifier.align(Alignment.BottomEnd)
-            .offset(x = (-8).dp, y = (-4).dp)
-            .testTag(PortfolioTag.WORK_CARD_TAG),
-    )
-}
+) { thumbnail() }
 
 @Composable
 private fun WorkHeadline(
@@ -155,3 +147,17 @@ private fun WorkHeadline(
         modifier = Modifier.testTag(PortfolioTag.WORK_CARD_TIME),
     )
 }
+
+@Composable
+private fun WorkTypeTag(
+    type: String,
+) = NoRippleAssistChip(
+    onClick = { },
+    colors = AssistChipDefaults.assistChipColors(
+        containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.8F),
+    ),
+    border = null,
+    leadingIcon = { Icon(Icons.Default.Tag, contentDescription = null) },
+    label = { Text(type) },
+    modifier = Modifier.testTag(PortfolioTag.WORK_CARD_TAG),
+)
